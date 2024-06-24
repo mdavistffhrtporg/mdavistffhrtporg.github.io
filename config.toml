@@ -13,9 +13,9 @@
 # If your theme is in the themes directory, you just need to specify its name.
 #
 #theme = "ananke"
-theme = [""]
+theme = ["hugo-emm-theme"]
 
-baseurl = "https://matthewd.org/"
+baseurl = "https://mdavistffhrtporg.github.io/"
 title = "Matthew A. Davis"
 contentdir    = "content"
 layoutdir     = "layouts"
