@@ -1,10 +1,10 @@
 name = 'emm'
 license = 'MPL-2.0'
-licenselink = 'https://gitlab.com/mdavis2810614/hugo-emm-theme-mdavis/-/blob/main/LICENSE'
-description = 'Development area for mdavis.me and fhrp.org'
+licenselink = 'hhttps://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io/blob/main/LICENSE'
+description = 'Development area for mdavis.me and fhrp.org and matthewd.org'
 
 # The home page of the theme, where the source can be found
-homepage = 'https://gitlab.com/mdavis2810614/hugo-emm-theme-mdavis/'
+homepage = 'https://github.com/TFFHRTP/hugo-emm-theme/'
 
 # If you have a running demo of the theme
 # demosite = 'https://matthewd.xyz/'
@@ -16,4 +16,4 @@ features = []
 # If the theme has a single author
 [author]
   name = 'Matthew A. Davis'
-  homepage = 'https://matthewd.org/'
+  homepage = 'https://matthewd.xyz/'

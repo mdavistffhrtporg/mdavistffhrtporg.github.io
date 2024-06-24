@@ -49,8 +49,8 @@ enableRobotsTXT = true
 # choose a background color from any on this page: http://tachyons.io/docs/themes/skins/ and preface it with "bg-"
   background_color_class = "bg-black"
   recent_posts_number = 3
-  copyright = "&copy;  2016 -- {year} [Matthew A. Davis](https://matthewd.org). [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [GitLab](https://gitlab.com/fhrp) | [GitHub](https://github.com/mdavistffhrtporg) | [Twitter](https://twitter.com/MyNameisMattD) | [Instagram](https://instagram.com/mattdmattphoto)"
-  attribution = "[Find this site on GitLab](https://gitlab.com/fhrp/mdavis.me) | [emm theme by Matthew A. Davis](https://gitlab.com/fhrp/hugo-emm-theme)"
+  copyright = "&copy;  2016 -- {year} [Matthew A. Davis](https://matthewd.xyz). [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [GitLab](https://gitlab.com/fhrp) | [GitHub](https://github.com/mdavistffhrtporg) | [Twitter](https://twitter.com/MyNameisMattD) | [Instagram](https://instagram.com/mattdmattphoto)"
+  attribution = "[Find this site on GitHub](https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io) | [emm theme by Matthew A. Davis](https://github.com/TFFHRTP/hugo-emm-theme)"
 
 [taxonomies]
   tag = "tags"

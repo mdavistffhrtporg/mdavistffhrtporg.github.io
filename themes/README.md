@@ -9,7 +9,7 @@ This theme was made for my personal website and project portfolio.
 ---
 ## Examples
 
-[Matthew A. Davis](https://matthewd.org/)
+[Matthew A. Davis](https://matthewd.xyz/)
 
 ---
 ## Installation
@@ -22,7 +22,7 @@ I will update this documentation in the future.
 There are several ways to contribute to this project.
 
 ### Share feedback
-[Open a new issue to report bugs and request new features.](https://gitlab.com/mdavis2810614/hugo-emm-theme-mdavis/-/issues/new)
+[Open a new issue to report bugs and request new features.](https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io/issues)
 
 ### Contribute code
 Fork and clone this repository.
