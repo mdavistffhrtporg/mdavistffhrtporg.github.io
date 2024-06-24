@@ -13,7 +13,7 @@
 # If your theme is in the themes directory, you just need to specify its name.
 #
 #theme = "ananke"
-theme = ["hugo-emm-theme"]
+theme = ["github.com/mdavistffhrtporg/hugo-emm-theme"]
 
 baseurl = "https://mdavistffhrtporg.github.io/"
 title = "Matthew A. Davis"
@@ -50,7 +50,7 @@ enableRobotsTXT = true
   background_color_class = "bg-black"
   recent_posts_number = 3
   copyright = "&copy;  2016 -- {year} [Matthew A. Davis](https://matthewd.xyz). [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [GitLab](https://gitlab.com/fhrp) | [GitHub](https://github.com/mdavistffhrtporg) | [Twitter](https://twitter.com/MyNameisMattD) | [Instagram](https://instagram.com/mattdmattphoto)"
-  attribution = "[Find this site on GitHub](https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io) | [emm theme by Matthew A. Davis](https://github.com/TFFHRTP/hugo-emm-theme)"
+  attribution = "[Find this site on GitHub](https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io) | [emm theme by Matthew A. Davis](https://github.com/mdavistffhrtporg/hugo-emm-theme)"
 
 [taxonomies]
   tag = "tags"
