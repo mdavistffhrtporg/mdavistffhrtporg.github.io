@@ -1,0 +1,67 @@
+#
+# This config.toml is an example and based on the ananke theme
+# https://github.com/theNewDynamic/gohugo-theme-ananke/.
+#
+# If you use a different theme, you might need to change the content of config.toml
+# to your liking.
+#
+
+#
+# Theme setup
+#
+# If you use go mod to install your theme, you must use the URL of the theme.
+# If your theme is in the themes directory, you just need to specify its name.
+#
+#theme = "ananke"
+theme = ["gitlab.com/mdavis2810614/hugo-emm-theme-mdavis"]
+
+baseurl = "https://matthewd.org/"
+title = "Matthew A. Davis"
+contentdir    = "content"
+layoutdir     = "layouts"
+publishdir    = "public"
+languageCode = "en-us"
+resourceDir = "../resources"
+
+DefaultContentLanguage = "en"
+SectionPagesMenu = "main"
+Paginate = 3 # this is set low for demonstrating with dummy content. Set to a higher number
+googleAnalytics = ""
+enableRobotsTXT = true
+
+[languages]
+  [languages.en]
+    title = "Matthew A. Davis"
+    weight = 1
+    contentDir = "content/en"
+
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[params]
+  text_color = ""
+  author = "Matthew A. Davis"
+  favicon = ""
+  site_logo = ""
+  description = "All about Matthew A. Davis"
+# choose a background color from any on this page: http://tachyons.io/docs/themes/skins/ and preface it with "bg-"
+  background_color_class = "bg-black"
+  recent_posts_number = 3
+  copyright = "&copy;  2016 -- {year} [Matthew A. Davis](https://matthewd.org). [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | [GitLab](https://gitlab.com/fhrp) | [GitHub](https://github.com/mdavistffhrtporg) | [Twitter](https://twitter.com/MyNameisMattD) | [Instagram](https://instagram.com/mattdmattphoto)"
+  attribution = "[Find this site on GitLab](https://gitlab.com/fhrp/mdavis.me) | [emm theme by Matthew A. Davis](https://gitlab.com/fhrp/hugo-emm-theme)"
+
+[taxonomies]
+  tag = "tags"
+  categories = "categories"
+
+[menus]
+  [[menus.main]]
+    name = 'M&L Davis Photography'
+    url = 'https://mldavis.me/'
+    weight = 10
+  [[menus.main]]
+    name = 'Tags'
+    url = '/tags'
+    weight = 20
