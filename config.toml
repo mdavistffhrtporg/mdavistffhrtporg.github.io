@@ -13,7 +13,7 @@
 # If your theme is in the themes directory, you just need to specify its name.
 #
 #theme = "ananke"
-theme = ["gitlab.com/mdavis2810614/hugo-emm-theme-mdavis"]
+theme = [""]
 
 baseurl = "https://matthewd.org/"
 title = "Matthew A. Davis"

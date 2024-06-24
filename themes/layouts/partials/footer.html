@@ -1,0 +1,5 @@
+<div class="copyright">
+    <p>{{ with .Site.Params.copyright }} {{ replace . "{year}" now.Year | markdownify }}</p>
+    {{ end }}
+</div>
+<br><div class="copyright">{{ .Site.Params.attribution | markdownify }}</div>

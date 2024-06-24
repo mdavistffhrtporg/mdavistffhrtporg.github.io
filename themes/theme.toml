@@ -1,0 +1,19 @@
+name = 'emm'
+license = 'MPL-2.0'
+licenselink = 'https://gitlab.com/mdavis2810614/hugo-emm-theme-mdavis/-/blob/main/LICENSE'
+description = 'Development area for mdavis.me and fhrp.org'
+
+# The home page of the theme, where the source can be found
+homepage = 'https://gitlab.com/mdavis2810614/hugo-emm-theme-mdavis/'
+
+# If you have a running demo of the theme
+# demosite = 'https://matthewd.xyz/'
+
+# Taxonomy terms
+tags = ['blog', 'biography', 'minimal']
+features = []
+
+# If the theme has a single author
+[author]
+  name = 'Matthew A. Davis'
+  homepage = 'https://matthewd.org/'

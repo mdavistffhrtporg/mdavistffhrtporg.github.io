@@ -1,0 +1,10 @@
+    <nav class="navbar" role="navigation">
+        <div class="navbar__left">
+            <a href="/"><strong>Matthew A. Davis</strong></a>
+        </div>
+        <div class="navbar__right">
+            {{ range .Site.Menus.main }}
+            <a href="{{ .URL }}">{{ .Name }}</a>
+            {{ end }}
+        </div>
+    </nav>
