@@ -13,7 +13,7 @@
 # If your theme is in the themes directory, you just need to specify its name.
 #
 #theme = "ananke"
-theme = ["hugo-theme-cmd"]
+theme = ["github.com/mdavistffhrtporg/hugo-emm-theme"]
 
 baseurl = "https://mdavistffhrtporg.github.io/"
 title = "Matthew A. Davis"
