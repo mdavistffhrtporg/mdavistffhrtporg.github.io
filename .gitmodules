@@ -1,0 +1,3 @@
+[submodule "themes/hugo-theme-cmd"]
+	path = themes/hugo-theme-cmd
+	url = https://github.com/mdavistffhrtporg/hugo-theme-cmd.git
