@@ -59,7 +59,7 @@ enableRobotsTXT = true
 [menus]
   [[menus.main]]
     name = 'M&L Davis Photography'
-    url = 'https://mldavis.me/'
+    url = 'https://mdavis.me/'
     weight = 10
   [[menus.main]]
     name = 'Tags'
