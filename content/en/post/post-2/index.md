@@ -1,5 +1,5 @@
 ---
-date: 2024-04-0410:58:08-04:00
+date: 2024-04-04T10:58:08-04:00
 description: "Fedora Silverblue"
 featured_image: "jakob-owens-unsplash.jpg"
 tags: ["OSS", "Silverblue", "Fedora"]
