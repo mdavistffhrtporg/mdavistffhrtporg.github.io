@@ -5,7 +5,7 @@ description: "My personal website"
 cascade:
 ---
 
-{{< figure src="/images/pic_mdavis.jpg" title="Matthew A. Davis" >}}
+![targets](/images/pic_mdavis.jpg)
 
 Matthew A. Davis is a husband, father, photographer, cybersecurity expert, and Open Source contributor. He enjoys using his Oklahoma Joe's offset smoker in his free time, and sitting outside on hot summer nights smoking brisket and pork butts. He is the President & CEO of The Foundation for Human Rights through Photography. He actively contributes to the Fedora Magazine, a part of the Fedora Project, as a writer and editor. He has been in the world of Open Source Software since 2003, and has used Fedora Linux since it was known as Fedora Core 1.
 
@@ -15,4 +15,4 @@ In 2016, he started his own small business, M&L Davis Photography, which he cont
 
 Currently, he is a writer and editor for the [Fedora Project's](https://fedoraproject.org/) [Fedora Magazine](https://fedoramagazine.org/). By using Open Source Software, his goal is to learn from that software, and spread the word about the freedoms that come with it. He is a big time computer enthusiast, with a background in Information Technology, and Cybersecurity. He is a major advocate for Open Source, and hopes to spread the word about it in any way he can and teach others tips and tricks that they may otherwise not know about.
 
-{{< figure src="/images/mdavis_sig.png" title="" >}}
+![targets](/images/mdavis_sig.png)
