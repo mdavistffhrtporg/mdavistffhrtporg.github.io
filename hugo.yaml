@@ -45,14 +45,6 @@ languages:
         - name: WiKi
           url: https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io/wiki
 
-  en:
-    languageName: ":en:"
-    weight: 2
-    title: PaperModL2
-    taxonomies:
-      category: ENcategories
-      tag: ENtags
-      series: FRseries
     menu:
       main:
         - name: Archive
