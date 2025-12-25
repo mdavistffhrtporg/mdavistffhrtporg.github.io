@@ -45,23 +45,6 @@ languages:
         - name: WiKi
           url: https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io/wiki
 
-    menu:
-      main:
-        - name: Archive
-          url: archives/
-          weight: 5
-        - name: ENTags
-          url: frtags
-          weight: 10
-        - name: ENCategories
-          url: encategories
-          weight: 10
-        - name: ENSeries
-          url: enseries
-          weight: 10
-        - name: NullLink
-          url: "#"
-
     # custom params for each language should be under [langcode].parms - hugo v0.120.0
     params:
       languageAltTitle: English
