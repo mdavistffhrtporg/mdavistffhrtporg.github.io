@@ -1,6 +1,6 @@
 baseURL: "https://mdavistffhrtporg.github.io"
 title: Matt
-paginate: 5
+# paginate: 5
 theme: PaperMod
 
 copyright: "© 2025 Matthew A. Davis [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) | Code [MIT License](https://opensource.org/licenses/MIT)"
