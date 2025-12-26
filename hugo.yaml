@@ -72,7 +72,7 @@ languages:
         - name: Tags
           url: tags/
           weight: 10
-        - name: WiKi
+        - name: Wiki
           url: https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io/wiki
 
     # custom params for each language should be under [langcode].parms - hugo v0.120.0
