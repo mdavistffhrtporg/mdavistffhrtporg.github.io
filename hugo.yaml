@@ -81,7 +81,7 @@ languages:
       description: "Matt - https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io/"
       author: Matt
       defaultTheme: auto
-        disableThemeToggle: false
+      #  disableThemeToggle: false
       # author: ["Me", "You"] # multiple authors
       languageAltTitle: English
       ShowShareButtons: true
