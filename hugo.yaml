@@ -50,17 +50,17 @@ languages:
       languageAltTitle: English
       profileMode:
         enabled: true
-        title: PaperMod
+        title: Matt
         imageUrl: "https://raw.githubusercontent.com/googlefonts/noto-emoji/master/svg/emoji_u1f9d1_1f3fb_200d_1f4bb.svg"
         imageTitle: ProfileMode image
         # imageWidth: 120
         # imageHeight: 120
-        subtitle: "☄️ Fast | ☁️ Fluent | 🌙 Smooth | 📱 Responsive"
+        subtitle: "☄️ Photography ☁️ | ☁️ Journalism ☁️ | 🌙 Human Rights ☁️ | 📱 Open Source Software"
         buttons:
           - name: Blog
-            url: posts
-          - name: Profile Mode
-            url: https://github.com/adityatelange/hugo-PaperMod/wiki/Features#profile-mode
+            url: archives
+          - name: Search
+            url: search
 
 outputs:
   home:
@@ -91,8 +91,8 @@ params:
   images: ["images/papermod-cover.png"]
 
   profileMode:
-    enabled: false
-    title: PaperMod
+    enabled: true
+    title: Matt
     imageUrl: "#"
     imageTitle: my image
     # imageWidth: 120
