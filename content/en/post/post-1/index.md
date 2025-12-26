@@ -1,10 +1,10 @@
 ---
 cover:
-  image: "luke-southern-unsplash.jpg"
+  image: "images/luke-southern-unsplash.jpg"
   # can also paste direct link from external site
   # ex. https://i.ibb.co/K0HVPBd/paper-mod-profilemode.png
-  alt: "screen showing an encrypted laptop"
-  caption: "Photo by: Markus Spiske on Unsplash"
+  alt: "picture of a window with an open sign"
+  caption: "Photo by: Luke Southern on Unsplash"
   relative: false # To use relative path for cover image, used in hugo Page-bundles
 date: 2024-04-04T10:58:08-04:00
 description: "Open Source Software"
