@@ -117,7 +117,7 @@ params:
   ShowAllPagesInArchive: true
   ShowPageNums: true
   ShowToc: true
-  comments: true
+  comments: false
   images: ["images/pic_mdavis-cropped.png"]
 
   profileMode:

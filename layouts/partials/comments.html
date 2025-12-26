@@ -1,15 +1,40 @@
-<script src="https://giscus.app/client.js"
-        data-repo="mdavistffhrtporg/mdavistffhrtporg.github.io"
-        data-repo-id="R_kgDOMNpTyg"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOMNpTys4C0Q3O"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
+<script>
+  function getTheme() {
+    return document.body.classList.contains('dark')
+      ? 'dark'
+      : 'light';
+  }
+
+  const giscusScript = document.createElement('script');
+  giscusScript.src = 'https://giscus.app/client.js';
+  giscusScript.setAttribute('data-repo', 'mdavistffhrtporg/mdavistffhrtporg.github.io');
+  giscusScript.setAttribute('data-repo-id', 'R_kgDOMNpTyg');
+  giscusScript.setAttribute('data-category', 'Announcements');
+  giscusScript.setAttribute('data-category-id', 'DIC_kwDOMNpTys4C0Q3O');
+  giscusScript.setAttribute('data-mapping', 'pathname');
+  giscusScript.setAttribute('data-strict', '0');
+  giscusScript.setAttribute('data-reactions-enabled', '1');
+  giscusScript.setAttribute('data-emit-metadata', '1');
+  giscusScript.setAttribute('data-input-position', 'top');
+  giscusScript.setAttribute('data-theme', getTheme());
+  giscusScript.setAttribute('crossorigin', 'anonymous');
+  giscusScript.async = true;
+
+  document.querySelector('.giscus').appendChild(giscusScript);
+
+  window.addEventListener('message', event => {
+    if (event.data?.type === 'theme-changed') {
+      const iframe = document.querySelector('iframe.giscus-frame');
+      iframe?.contentWindow.postMessage(
+        {
+          giscus: {
+            setConfig: {
+              theme: getTheme(),
+            },
+          },
+        },
+        'https://giscus.app'
+      );
+    }
+  });
 </script>
