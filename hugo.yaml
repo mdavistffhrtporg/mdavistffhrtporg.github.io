@@ -2,6 +2,29 @@ baseURL: https://mdavistffhrtporg.github.io/
 languageCode: en-us
 title: Matt
 
+caches:
+  assets:
+    dir: :resourceDir/_gen
+    maxAge: 6h
+  getcsv:
+    dir: :cacheDir/:project
+    maxAge: 6h
+  getjson:
+    dir: :cacheDir/:project
+    maxAge: 6h
+  getresource:
+    dir: :cacheDir/:project
+    maxAge: 6h
+  images:
+    dir: :resourceDir/_gen
+    maxAge: 6h
+  misc:
+    dir: :cacheDir/:project
+    maxAge: 6h
+  modules:
+    dir: :cacheDir/modules
+    maxAge: 6h
+
 theme: ["PaperMod"]
 
 copyright: "© 2025 Matthew A. Davis [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
