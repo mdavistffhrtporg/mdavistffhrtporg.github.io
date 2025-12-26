@@ -1,24 +1,24 @@
 ---
 cover:
-  image: "images/luke-southern-unsplash.jpg"
+  image: "images/jakob-owens-unsplash.jpg"
   # can also paste direct link from external site
   # ex. https://i.ibb.co/K0HVPBd/paper-mod-profilemode.png
-  alt: "picture of a window with an open sign"
-  caption: "_Photo by: [Luke Southern](https://unsplash.com/@lukesouthern) on [Unsplash](https://unsplash.com/)_"
+  alt: "picture of a long asphalt road in the desert leading into the mountains"
+  caption: "_Photo by: [Jakob Owens](https://unsplash.com/@jakobowens1) on [Unsplash](https://unsplash.com/)_"
   relative: false # To use relative path for cover image, used in hugo Page-bundles
-date: 2024-04-04T10:58:08-04:00
-description: "Open Source Software"
-tags: ["OSS"]
+date: 2024-01-04T00:00:00-00:00
+description: "Fedora Silverblue"
+tags: ["OSS", "Silverblue", "Fedora"]
 categories: ["OSS", "Fedora"]
-title: "I contribute to the Fedora Magazine, what about you?"
+title: "Why did I choose Fedora Silverblue?"
 ---
 
-# How do I contribute to OSS?
+Considering that the Operating System (OS) ecosystem has began to change its views on their core components and how they work over the years, I thought it would be a good idea for me to describe what brought me to the OS I use. To best put it simple, I chose [Fedora Silverblue](https://fedoraproject.org/atomic-desktops/silverblue/) because of its concept of “immutability” and being “atomic.” The terms immutability and atomic have come into play increasingly more over the past decade, and I feel like the idea of using an immutable or atomic OS deserves some attention.
 
-Recently I reached out to the folks over that the [Fedora Project](https://fedoraproject.org/) to see how I might go about getting involved. I spoke to the people in Marketing, Documentation, and the [Fedora Magazine](https://fedoramagazine.org/). While Marketing and Documentation both sounded very interesting, I ended up choosing the Fedora Magazine. Why? Because they are everything I love doing. With the Fedora Magazine, I have the opportunity to both edit and write. My background in editing and writing articles from way back in my college days made me feel right at home with the Magazine.
+The terms “immutable” or “atomic” means that everything at the base of the system is read-only. Meaning that everything outside of /etc and /var are the only directories that can be written to. All of the other directories cannot be tampered with. This makes OSes inherently more secure, because not other directory can be written to by malicious software, nor can they be modified by the user. If an update does not go as intended, the user can roll back the operating system upon the next boot.
 
-Considering that I just started this role a couple of days ago, I am still learning all of the ropes. To this day, I have begun editing an article, and have written an article that is in progress (for context, I began three days ago). You’re probably wondering what I think of it so far. Well, it is great. Since I have been using Fedora Linux since it was first known as Fedora Core 1, I have always had a desire to contribute to such an active community. Finally, I couldn’t hold back the urge to contribute anymore. As previously mentioned, I sought out multiple avenues to contribute to the project. I feel like contributing to the Fedora Magazine will fulfill that urge.
+Fedora Silverblue is what the Fedora Project calls an “Atomic Desktop.” This is because it is immutable in nature, and allows the user to roll back any changes that are made at the system level that might have gone wrong. I chose Silverblue because it keeps your system tidy, and prevents software from modifying core system files. All software is installed via Flapaks, in a Toolbx container, or via layering. They key term here is container. Toolbx allows you to create containers within a terminal that can run software just like a normal Fedora install, or even graphically outside of the terminal.
 
-# What about you?
+Silverblue both updates and layers software by utilizing rpm-ostree. By invoking this command, you can update the entire system and still have a point to roll back to if an update does go wrong. I always do ostree admin pin 0 before I do a major upgrade. This means that the most recent point that I’m on before invoking rpm-ostree rebase fedora:fedora/<…>/x86_64/silverblue By doing this, I will have that point to fallback on should the update go severely wrong.
 
-I highly recommend for anyone who feels the imperative need to contribute to Open Source, do so. If you are still wondering about whether or not you would fit in with the Fedora Project, I encourage you take a look [here](https://docs.fedoraproject.org/en-US/project/join/) and digest their information to figure out if there is something you would enjoy. Maybe the Fedora Project isn’t right for you. I would encourage you to check out other channels of interest, such as [Ubuntu](https://ubuntu.com/), [openSUSE](https://opensuse.org/), or [Arch Linux](https://archlinux.org/). Simply put, just search the web for “how to get involved in the Linux community.” I’m sure the search won’t come up empty!
+The points made above represent my own reasons for choosing Fedora Silverblue, why did you choose the OS you’re on?
