@@ -103,7 +103,6 @@ params:
   description: "Matt - https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io/"
   author: Matt
   # author: ["Me", "You"] # multiple authors
-  comments: true
 
   defaultTheme: auto
   # disableThemeToggle: true
