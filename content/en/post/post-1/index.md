@@ -4,7 +4,7 @@ cover:
   # can also paste direct link from external site
   # ex. https://i.ibb.co/K0HVPBd/paper-mod-profilemode.png
   alt: "picture of a window with an open sign"
-  caption: "Photo by: Luke Southern on Unsplash"
+  caption: "_Photo by: [Luke Southern](https://unsplash.com/@lukesouthern) on [Unsplash](https://unsplash.com/)_"
   relative: false # To use relative path for cover image, used in hugo Page-bundles
 date: 2024-04-04T10:58:08-04:00
 description: "Open Source Software"
@@ -22,5 +22,3 @@ Considering that I just started this role a couple of days ago, I am still learn
 # What about you?
 
 I highly recommend for anyone who feels the imperative need to contribute to Open Source, do so. If you are still wondering about whether or not you would fit in with the Fedora Project, I encourage you take a look [here](https://docs.fedoraproject.org/en-US/project/join/) and digest their information to figure out if there is something you would enjoy. Maybe the Fedora Project isn’t right for you. I would encourage you to check out other channels of interest, such as [Ubuntu](https://ubuntu.com/), [openSUSE](https://opensuse.org/), or [Arch Linux](https://archlinux.org/). Simply put, just search the web for “how to get involved in the Linux community.” I’m sure the search won’t come up empty!
-
-_Photo by: [Luke Southern](https://unsplash.com/@lukesouthern) on [Unsplash](https://unsplash.com/)_

@@ -1,7 +1,13 @@
 ---
+cover:
+  image: "images/markus-spiske-unsplash-scaled.jpg"
+  # can also paste direct link from external site
+  # ex. https://i.ibb.co/K0HVPBd/paper-mod-profilemode.png
+  alt: "picture of a computer with encryted letters on the screen"
+  caption: "_Photo by: [Markus Spiske](https://unsplash.com/@markusspiske) on [Unsplash](https://unsplash.com/)_"
+  relative: false # To use relative path for cover image, used in hugo Page-bundles
 date: 2024-04-04T10:58:08-04:00
 description: "LUKS2 & TPM2"
-featured_image: "markus-spiske-unsplash-scaled.jpg"
 tags: ["OSS", "Fedora"]
 categories: ["OSS", "Fedora"]
 title: "How to unlock a LUKS2 disk with a TPM2 chip"
@@ -58,5 +64,3 @@ If have made it this far, you are probably wondering about the fact that what we
 As previously mentioned, the TPM2 chip along with secure boot do have weaknesses. One way to mitigate those weaknesses is to use a separate pieces of hardware, such as a FIDO2 key, i.e. a YubiKey. This type of token is kept separate from the system, meaning that there is an extra layer of security that requires the user’s presence in order to decrypt the disk. And, FIDO2 keys will block any further input upon a previously determined set amount of failed PIN inputs, thereby preventing a brute force attack. Please look for details on unlocking your LUKS2 disk with a FIDO2 token soon.
 
 _This is part (1) of a (2)-part series._
-
-_Photo by: [Markus Spiske](https://unsplash.com/@markusspiske) on [Unsplash](https://unsplash.com/)_

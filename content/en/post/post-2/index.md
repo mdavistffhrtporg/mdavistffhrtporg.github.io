@@ -1,7 +1,13 @@
 ---
+cover:
+  image: "images/jakob-owens-unsplash.jpg"
+  # can also paste direct link from external site
+  # ex. https://i.ibb.co/K0HVPBd/paper-mod-profilemode.png
+  alt: "picture of a long asphalt road in the desert leading into the mountains"
+  caption: "_Photo by: [Jakob Owens](https://unsplash.com/@jakobowens1) on [Unsplash](https://unsplash.com/)_"
+  relative: false # To use relative path for cover image, used in hugo Page-bundles
 date: 2024-04-04T10:58:08-04:00
 description: "Fedora Silverblue"
-featured_image: "jakob-owens-unsplash.jpg"
 tags: ["OSS", "Silverblue", "Fedora"]
 categories: ["OSS", "Fedora"]
 title: "Why did I choose Fedora Silverblue?"
@@ -16,5 +22,3 @@ Fedora Silverblue is what the Fedora Project calls an “Atomic Desktop.” This
 Silverblue both updates and layers software by utilizing rpm-ostree. By invoking this command, you can update the entire system and still have a point to roll back to if an update does go wrong. I always do ostree admin pin 0 before I do a major upgrade. This means that the most recent point that I’m on before invoking rpm-ostree rebase fedora:fedora/<…>/x86_64/silverblue By doing this, I will have that point to fallback on should the update go severely wrong.
 
 The points made above represent my own reasons for choosing Fedora Silverblue, why did you choose the OS you’re on?
-
-_Photo by: [Jakob Owens](https://unsplash.com/@jakobowens1) on [Unsplash](https://unsplash.com/)_
