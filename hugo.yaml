@@ -81,7 +81,7 @@ languages:
         subtitle: "☄️ Photography ☁️ | ☁️ Journalism ☁️ | 🌙 Human Rights ☁️ | 📱 Open Source Software"
         buttons:
           - name: Blog
-            url: archives
+            url: post
           - name: Search
             url: search
 

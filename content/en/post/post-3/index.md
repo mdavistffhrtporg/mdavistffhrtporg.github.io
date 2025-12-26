@@ -1,7 +1,13 @@
 ---
+cover:
+  image: "images/rr-abrot-unsplash-scaled.jpg"
+  # can also paste direct link from external site
+  # ex. https://i.ibb.co/K0HVPBd/paper-mod-profilemode.png
+  alt: "picture of the inside of a industrial style cafe"
+  caption: "_Photo by: [RR Abrot](https://unsplash.com/@rr_abrot) on [Unsplash](https://unsplash.com/)_"
+  relative: false # To use relative path for cover image, used in hugo Page-bundles
 date: 2024-04-04T10:58:08-04:00
 description: "Poetry"
-featured_image: "rr-abrot-unsplash-scaled.jpg"
 tags: ["Poetry"]
 categories: ["Poetry"]
 title: "Poem: The black ink cafe"
@@ -30,5 +36,3 @@ _Who just can’t remember to_
 _Tip_
 
 -Matthew A. Davis
-
-_Photo by: [RR Abrot](https://unsplash.com/@rr_abrot) on [Unsplash](https://unsplash.com/)_
