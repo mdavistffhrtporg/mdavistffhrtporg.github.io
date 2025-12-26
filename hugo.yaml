@@ -117,41 +117,6 @@ outputs:
     - RSS
     - JSON
 
-# params:
-#  env: production # to enable google analytics, opengraph, twitter-cards and schema.
-#  description: "Matt - https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io/"
-#  author: Matt
-  # author: ["Me", "You"] # multiple authors
-
-#  defaultTheme: auto
-  # disableThemeToggle: true
-#  ShowShareButtons: true
-#  ShowReadingTime: true
-  # disableSpecial1stPost: true
-#  displayFullLangName: true
-#  ShowPostNavLinks: true
-#  ShowBreadCrumbs: true
-#  ShowCodeCopyButtons: true
-#  ShowRssButtonInSectionTermList: true
-#  ShowAllPagesInArchive: true
-#  ShowPageNums: true
-#  ShowToc: true
-#  comments: false
-#  images: ["images/pic_mdavis-cropped.png"]
-
- # profileMode:
- #   enabled: true
- #   title: Matt
- #    imageUrl: https://raw.githubusercontent.com/mdavistffhrtporg/mdavistffhrtporg.github.io/refs/heads/main/static/images/pic-mdavis-home.svg
- #    imageTitle: my image
-    # imageWidth: 120
-    # imageHeight: 120
- #   buttons:
- #     - name: Archives
- #       url: archives
- #     - name: Tags
- #       url: tags
-
  # homeInfoParams:
  #   Title: "About"
  #   Content: >
