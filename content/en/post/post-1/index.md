@@ -1,7 +1,13 @@
 ---
+cover:
+  image: "luke-southern-unsplash.jpg"
+  # can also paste direct link from external site
+  # ex. https://i.ibb.co/K0HVPBd/paper-mod-profilemode.png
+  alt: "screen showing an encrypted laptop"
+  caption: "Photo by: Markus Spiske on Unsplash"
+  relative: false # To use relative path for cover image, used in hugo Page-bundles
 date: 2024-04-04T10:58:08-04:00
 description: "Open Source Software"
-featured_image: "luke-southern-unsplash.jpg"
 tags: ["OSS"]
 categories: ["OSS", "Fedora"]
 title: "I contribute to the Fedora Magazine, what about you?"
