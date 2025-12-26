@@ -93,9 +93,10 @@ outputs:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
-  author: Theme PaperMod
+  description: "Matt - https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io/"
+  author: Matt
   # author: ["Me", "You"] # multiple authors
+  comments: true
 
   defaultTheme: auto
   # disableThemeToggle: true
@@ -111,7 +112,7 @@ params:
   ShowPageNums: true
   ShowToc: true
   # comments: false
-  images: ["images/papermod-cover.png"]
+  images: ["images/pic_mdavis.png"]
 
   profileMode:
     enabled: true
