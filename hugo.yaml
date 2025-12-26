@@ -86,7 +86,7 @@ languages:
       languageAltTitle: English
       ShowShareButtons: true
       ShowReadingTime: true
-       disableSpecial1stPost: true
+      # disableSpecial1stPost: true
       displayFullLangName: true
       ShowPostNavLinks: true
       ShowBreadCrumbs: true
