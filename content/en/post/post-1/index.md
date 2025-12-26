@@ -6,7 +6,7 @@ cover:
   alt: "picture of a long asphalt road in the desert leading into the mountains"
   caption: "_Photo by: [Jakob Owens](https://unsplash.com/@jakobowens1) on [Unsplash](https://unsplash.com/)_"
   relative: false # To use relative path for cover image, used in hugo Page-bundles
-date: 2024-01-04T00:00:00-00:00
+date: 2024-04-01T00:00:00-00:00
 description: "Fedora Silverblue"
 tags: ["OSS", "Silverblue", "Fedora"]
 categories: ["OSS", "Fedora"]

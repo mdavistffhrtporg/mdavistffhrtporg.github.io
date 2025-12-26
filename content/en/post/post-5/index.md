@@ -6,7 +6,7 @@ cover:
   alt: "picture of an evergreen tree in the winter"
   caption: "_Photo by: [Me](https://mdavistffhrtporg.github.io/) on [Instagram](https://instagram.com/mattdmattphoto)_"
   relative: false # To use relative path for cover image, used in hugo Page-bundles
-date: 2025-24-12T-00:00:00-00:00
+date: 2025-12-24T-00:00:00-00:00
 description: "Happy Holidays"
 tags: ["Holidays"]
 categories: ["Wishes", "Uncategorized"]

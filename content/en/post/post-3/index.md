@@ -6,7 +6,7 @@ cover:
   alt: "picture of a window with an open sign"
   caption: "_Photo by: [Luke Southern](https://unsplash.com/@lukesouthern) on [Unsplash](https://unsplash.com/)_"
   relative: false # To use relative path for cover image, used in hugo Page-bundles
-date: 2024-03-04T00:00:00-00:00
+date: 2024-04-03T00:00:00-00:00
 description: "Open Source Software"
 tags: ["OSS"]
 categories: ["OSS", "Fedora"]
