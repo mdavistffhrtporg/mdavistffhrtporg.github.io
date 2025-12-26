@@ -3,9 +3,10 @@ title: "Matthew A. Davis"
 
 description: "My personal website"
 cascade:
+comments: false
 ---
 
-![targets](/images/pic_mdavis.jpg)
+![targets](/images/pic_mdavis.png)
 
 - Hi,
       
