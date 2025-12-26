@@ -1,6 +1,13 @@
 baseURL: https://mdavistffhrtporg.github.io/
 languageCode: en-us
 title: Matt
+enableGitInfo: true
+frontmatter:
+  lastmod:
+    - :git
+    - :date
+
+canonifyURLs: true
 
 caches:
   assets:
@@ -74,7 +81,7 @@ languages:
       profileMode:
         enabled: true
         title: Matt
-        imageUrl: "https://raw.githubusercontent.com/googlefonts/noto-emoji/master/svg/emoji_u1f9d1_1f3fb_200d_1f4bb.svg"
+        imageUrl: "https://mdavistffhrtporg.github.io/images/pic_mdavis-cropped.png"
         imageTitle: ProfileMode image
         # imageWidth: 120
         # imageHeight: 120
@@ -111,13 +118,13 @@ params:
   ShowAllPagesInArchive: true
   ShowPageNums: true
   ShowToc: true
-  # comments: false
-  images: ["images/pic_mdavis.png"]
+  comments: true
+  images: ["images/pic_mdavis-cropped.png"]
 
   profileMode:
     enabled: true
     title: Matt
-    imageUrl: "#"
+    imageUrl: "images/pic_mdavis-cropped.png"
     imageTitle: my image
     # imageWidth: 120
     # imageHeight: 120
