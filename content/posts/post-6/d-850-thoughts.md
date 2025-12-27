@@ -33,4 +33,4 @@ But, I just can't part with my D850. It has become my favorite camera, and I abs
 
 Oh, and, here's an amazing photograph that wasn't produced with my D850...
 
-![black and white image of a woman and girl walking on an out of service train track](20251222_092417_2560w_shorter.jpeg)
+![image lookup up at a light from below](images/20251222_092417.jpg)
