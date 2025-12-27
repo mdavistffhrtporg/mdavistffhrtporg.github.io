@@ -1,0 +1,7 @@
+Contact: mailto:matthewd@matthewd.org
+Contact: mailto:mdavisa2021@gmail.com
+Expires: 2026-12-31T23:59:59Z
+Encryption: https://matthewd.org/mdavis.asc
+Policy: https://matthewd.org/security/
+Canonical: https://matthewd.org/.well-known/security.txt
+Preferred-Languages: en

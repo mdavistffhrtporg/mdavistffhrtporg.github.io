@@ -1,0 +1,32 @@
+/* TEAM */
+Owner / Author: Matthew Davis
+Contact: matthewd@matthewd.org
+GitHub: https://github.com/mdavistffhrtporg
+Location: United States
+
+/* SITE */
+Domain: matthewd.org
+Purpose: Personal website and writing
+Stack: Hugo, GitHub Pages, Cloudflare
+Comments: GitHub Discussions (Giscus)
+Analytics: Minimal, security-focused only
+
+/* CONTENT */
+Writing, technical notes, and personal pages.
+Opinions are my own.
+
+/* PRINCIPLES */
+Privacy-respecting by design
+No ads
+No tracking
+Static-first
+Security-conscious
+
+/* THANKS */
+Open source maintainers
+Security researchers
+Thoughtful readers
+
+/* META */
+Last updated: 2025-12-27
+Standards: humans.txt (humanstxt.org)
