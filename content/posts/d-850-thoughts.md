@@ -2,7 +2,7 @@
 title: "D850 thoughts"
 date: 2025-12-27T10:39:58-06:00
 lastmod: 2025-12-27T10:39:58-06:00
-draft: true
+draft: false
 
 author: "Matt"
 
@@ -14,7 +14,7 @@ categories: ["Photography"]
 
 showToc: true
 TocOpen: false
-comments: false
+comments: true
 
 disableHLJS: false
 searchHidden: false
