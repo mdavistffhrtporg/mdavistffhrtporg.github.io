@@ -66,6 +66,8 @@ params:
     imageHeight: 120
     imageTitle: my image
     buttons:
+      - name: OpenSift
+        url: "https://github.com/OpenSift/OpenSift"
       - name: Blog
         url: posts
       - name: Search
