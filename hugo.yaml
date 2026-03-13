@@ -79,6 +79,9 @@ params:
     Content: Welcome to my blog
 
   socialIcons:
+    - name: Bluesky
+      title: Find me on Bluesky
+      url: "https://bsky.app/profile/matthewd.xyz"
     - name: GitHub
       title: View Source on Github
       url: "https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io"
