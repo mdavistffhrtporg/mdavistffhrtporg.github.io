@@ -1,4 +1,4 @@
-# matthewd.org
+# matthewd.xyz
 
 Personal website and blog for Matthew Davis, built with Hugo and deployed via GitHub Pages.
 
