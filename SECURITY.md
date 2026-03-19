@@ -9,17 +9,17 @@ If you discover a security vulnerability or have a security-related concern rega
 
 ### Preferred Contact
 
-- **Email:** matthewd@matthewd.org
+- **Email:** matthewd@matthewd.xyz
 
 You may encrypt your message using the public PGP key available at:
 
-- **PGP Key:** https://matthewd.org/mdavis.asc
+- **PGP Key:** https://matthewd.xyz/mdavis.asc
 
 ### Alternate Contact
 
 If email is unavailable, you may also contact:
 
-- **Email:** mdavisa2021@gmail.com
+- **Email:** mdavisa2021@pm.me
 
 ---
 
@@ -27,7 +27,7 @@ If email is unavailable, you may also contact:
 
 This security policy applies to:
 
-- https://matthewd.org
+- https://matthewd.xyz/
 - Associated GitHub repositories related to the website
 - Site configuration, build pipelines, and deployment workflows
 
