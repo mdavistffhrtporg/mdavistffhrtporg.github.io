@@ -13,7 +13,7 @@ If you discover a security vulnerability or have a security-related concern rega
 
 You may encrypt your message using the public PGP key available at:
 
-- **PGP Key:** https://matthewd.xyz/mdavis.asc
+- **PGP Key:** https://matthewd.xyz/matthewdxyz.asc
 
 ### Alternate Contact
 
