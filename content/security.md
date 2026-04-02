@@ -8,7 +8,7 @@ comments: false
 
 This security policy is published both on this website and in the GitHub repository:
 
-- **Site version:** https://matthewd.org/security/
+- **Site version:** https://matthewd.xyz/security/
 - **Repository version:** https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io/blob/main/SECURITY.md
 
 ---
@@ -18,12 +18,12 @@ This security policy is published both on this website and in the GitHub reposit
 If you discover a security vulnerability or have a security-related concern regarding this website or its associated repositories, please report it responsibly.
 
 ### Preferred Contact
-- **Email:** matthewd@matthewd.org  
+- **Email:** matthewd@matthewd.xyz
 You may encrypt your message using the public PGP key available at:
-- **PGP Key:** https://matthewd.org/mdavis.asc
+- **PGP Key:** https://matthewd.xyz/matthewdxyz.asc
 
 ### Alternate Contact
-- **Email:** mdavisa2021@gmail.com
+- **Email:** mdavisa2021@pm.me
 
 ---
 
@@ -31,7 +31,7 @@ You may encrypt your message using the public PGP key available at:
 
 This policy applies to:
 
-- https://matthewd.org
+- https://matthewd.xyz
 - The GitHub repository: https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io
 - Site configuration, build pipelines, and deployment workflows
 
