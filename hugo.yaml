@@ -66,8 +66,8 @@ params:
     imageHeight: 120
     imageTitle: my image
     buttons:
-      - name: OpenSift
-        url: "https://github.com/OpenSift/OpenSift"
+      - name: OmekaRapper
+        url: "https://github.com/TFFHRTP/OmekaRapper"
       - name: Blog
         url: posts
       - name: Search
