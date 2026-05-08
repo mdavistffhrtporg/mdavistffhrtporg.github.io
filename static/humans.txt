@@ -5,7 +5,7 @@ GitHub: https://github.com/mdavistffhrtporg
 Location: United States
 
 /* SITE */
-Domain: matthewd.org
+Domain: matthewd.xyz
 Purpose: Personal website and writing
 Stack: Hugo, GitHub Pages, Cloudflare
 Comments: GitHub Discussions (Giscus)
