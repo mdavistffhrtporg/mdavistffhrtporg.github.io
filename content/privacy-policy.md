@@ -26,7 +26,7 @@ comments: false
 
 ## Overview
 
-This website (`matthewd.org`) is a personal website operated by Matthew Davis.
+This website (`matthewd.xyz`) is a personal website operated by Matthew Davis.
 
 The site is designed to be simple, secure, and respectful of visitor privacy. It does not sell personal data, does not run advertising networks, and does not engage in behavioral profiling or targeted advertising.
 
@@ -156,7 +156,7 @@ This website processes only limited technical data necessary for secure operatio
 
 You may contact the site operator regarding privacy-related requests:
 
-- **Email:** matthewd@matthewd.org  
+- **Email:** privacy@matthewd.xyz  
 - **GitHub:** By opening an issue in a related GitHub repository
 
 Because this site does not maintain user accounts or personal profiles, the ability to identify or act on specific data may be limited.
@@ -261,7 +261,7 @@ Violations may result in moderation actions, including content removal or partic
 ## Reporting
 
 Concerns may be reported via:
-- **Email:** matthewd@matthewd.org  
+- **Email:** security@matthewd.xyz  
 - **GitHub:** By filing an issue or contacting repository maintainers
 
 All reports will be reviewed and handled with discretion.
