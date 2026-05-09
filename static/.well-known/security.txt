@@ -1,7 +1,16 @@
-Contact: mailto:matthewd@matthewd.org
-Contact: mailto:mdavisa2021@gmail.com
-Expires: 2026-12-31T23:59:59Z
-Encryption: https://matthewd.org/mdavis.asc
-Policy: https://matthewd.org/security/
-Canonical: https://matthewd.org/.well-known/security.txt
-Preferred-Languages: en
+# Matthew Davis security contacts and policy
+
+# Our security contact channels
+Contact: mailto:matthewd@matthewd.xyz
+Contact: mailto:mdavisa2021@pm.me
+
+# If practical, use PGP encryption
+Encryption: https://raw.githubusercontent.com/mdavistffhrtporg/mdavistffhrtporg.github.io/refs/heads/main/static/matthewdxyz.asc
+
+# Link to our vulnerability disclosure policy
+Policy: https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io/blob/main/SECURITY.md
+# Languages that our team speaks and understands
+Preferred-Languages: en-US
+
+# Expiration date for this security.txt file
+Expires: 2027-05-09T00:00:00Z
