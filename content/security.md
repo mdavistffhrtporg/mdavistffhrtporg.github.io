@@ -6,61 +6,57 @@ draft: false
 comments: false
 ---
 
-This security policy is published both on this website and in the GitHub repository:
+## Reporting a Vulnerability
 
-- **Site version:** https://matthewd.xyz/security/
-- **Repository version:** https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io/blob/main/SECURITY.md
+This website welcomes feedback from security researchers and the general public to help improve our security. If you believe you have discovered a vulnerability, privacy issue, exposed data, or other security issue in any of our assets, we want to hear from you.
 
----
+### Official Channels
 
-## Reporting Security Issues
+Please report security issues via one of the following channels, providing as much detail as possible. The more information you include, the easier it will be for us to triage and address the issue.
 
-If you discover a security vulnerability or have a security-related concern regarding this website or its associated repositories, please report it responsibly.
+- **Email**: [security@matthewd.xyz](mailto:security@matthewd.xyz)
+- **Email**: [security@mlaify.io](mailto:security@mlaify.io)
+- **PGP key**: [matthewd.xyz/matthewdxyz.asc](https://matthewd.xyz/matthewdxyz.asc)
 
-### Preferred Contact
-- **Email:** matthewd@matthewd.xyz
-You may encrypt your message using the public PGP key available at:
-- **PGP Key:** https://matthewd.xyz/matthewdxyz.asc
+### Systems in Scope
 
-### Alternate Contact
-- **Email:** mdavisa2021@pm.me
+This policy covers any digital assets owned, operated, or maintained by matthewd.xyz, including:
 
----
+- **mmatthewd.xyz** — this site
+- **mlaify.io**
+- **Aegis** — post-quantum encrypted messaging stack ([github.com/mlaify](https://github.com/mlaify))
+- **AttackMap** — defensive security analysis engine ([github.com/mlaify](https://github.com/mlaify))
 
-## Scope
+### What We Ask of You
 
-This policy applies to:
+Please give us at least **90 days** from your initial report to resolve the issue before any public disclosure.
 
-- https://matthewd.xyz
-- The GitHub repository: https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io
-- Site configuration, build pipelines, and deployment workflows
+When participating in our vulnerability disclosure program in good faith, we ask that you:
 
-It does **not** apply to third-party services used by the site, which are governed by their own security and privacy policies.
+- Follow our [Vulnerability Disclosure Policy](https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io/blob/main/SECURITY.md) and any other applicable agreements;
+- Report vulnerabilities promptly and avoid violating the privacy of others or disrupting our systems;
+- Limit data access to the minimum required for a Proof of Concept;
+- Cease testing and report immediately if you encounter any user data (PII, PHI, financial data); and
+- Not engage in extortion.
 
----
+### Our Commitments
 
-## What to Include in a Report
+You can expect us to:
 
-To help resolve issues efficiently, please include:
+- Respond to your report promptly and work with you to understand and validate it;
+- Keep you informed about the progress of the vulnerability as it is processed;
+- Remediate confirmed vulnerabilities in a timely manner; and
+- Extend Safe Harbor for good-faith research conducted under this policy.
 
-- A clear description of the issue
-- Steps to reproduce (if applicable)
-- The URL(s) or component(s) affected
-- Any relevant logs, screenshots, or proof of concept
+### Safe Harbor
 
----
-
-## Expectations
-
-- Allow reasonable time for investigation and response
-- Do not publicly disclose issues before they are reviewed and remediated
-- This site does not operate a bug bounty program, but responsible disclosures are appreciated
+We consider security research conducted under this policy to be authorized under applicable anti-hacking and anti-circumvention laws. We will not initiate or support legal action against researchers who act in good faith in accordance with this policy.
 
 ---
 
-## Safe Harbor
+For the complete policy text, see [SECURITY.md](https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io/blob/main/SECURITY.md) in our repository.
 
-Good-faith security research and responsible disclosure, performed without accessing or exfiltrating data you are not authorized to access and without disrupting services, are welcomed and will not result in legal action.
+> This policy follows the [disclose.io](https://disclose.io) vulnerability disclosure framework.
 
 ---
 
