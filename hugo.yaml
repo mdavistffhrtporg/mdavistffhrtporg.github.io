@@ -66,8 +66,12 @@ params:
     imageHeight: 120
     imageTitle: my image
     buttons:
-      - name: OmekaRapper
-        url: "https://github.com/TFFHRTP/OmekaRapper"
+      - name: mlaify
+        url: "https://mlaify.io/"
+      - name: Aegis
+        url: "https://mlaify.io/aegis"
+      - name: AttackMap
+        url: "https://mlaify.io/attackmap"
       - name: Blog
         url: posts
       - name: Search
