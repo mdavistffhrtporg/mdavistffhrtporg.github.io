@@ -22,7 +22,7 @@ Please report security issues via one of the following channels, providing as mu
 
 This policy covers any digital assets owned, operated, or maintained by matthewd.xyz, including:
 
-- **mmatthewd.xyz** — this site
+- **matthewd.xyz** — this site
 - **mlaify.io**
 - **Aegis** — post-quantum encrypted messaging stack ([github.com/mlaify](https://github.com/mlaify))
 - **AttackMap** — defensive security analysis engine ([github.com/mlaify](https://github.com/mlaify))
