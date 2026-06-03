@@ -8,17 +8,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- `CHANGELOG.md` following Keep a Changelog conventions.
-- `CONTRIBUTING.md` with contribution guidelines, PR process, and local development instructions.
-- `CODE_OF_CONDUCT.md` adopting the Contributor Covenant 3.0.
-- `.github/PULL_REQUEST_TEMPLATE.md` to standardize pull request submissions.
-- `.github/FUNDING.yml` (commented stub) for optional repository sponsorship configuration.
+- New theme foundation: Tailwind CSS 3, Pagefind 1.4 search, JetBrains Mono + Inter fonts.
+- Personal copper accent palette (`#b45309` family) site-wide; Aegis (cyan) and AttackMap (amber) accents preserved for Phase 2.
+- Editorial hero-stack homepage with avatar, tagline, latest-writing list.
+- Blog post layout with cover image, post-meta (reading time, tags, date), share row (Bluesky + copy link), prev/next, and Giscus comments.
+- Blog list layout with paginated two-column post grid.
+- 404 page.
+- Shortcodes ported from mlaify in preparation for Phase 2: `callout`, `status`, `cta`, `feature`, `feature-grid`, `app-badges`, `repo-link`.
+- Hugo config split into `config/_default/*.toml` files (hugo, module, markup, params, languages, menus).
 
 ### Changed
-- Replaced personal contact email (`matthewd@matthewd.xyz`) with role-based addresses:
-  - `security.txt` now lists `security@matthewd.xyz` and `security@mlaify.io`.
-  - `privacy.json` now lists `privacy@matthewd.xyz`.
-  - `humans.txt` general contact updated to `privacy@matthewd.xyz`.
-- Migrated remaining `matthewd.org` references to `matthewd.xyz` in privacy policy and post cover captions.
-- Privacy policy "Exercising Your Rights" contact updated to `privacy@matthewd.xyz`.
-- Code of Conduct "Reporting" contact updated to `security@matthewd.xyz`.
+- Replaced PaperMod theme with a port of mlaify's custom Hugo theme.
+- Moved Giscus partial from `layouts/partials/` to `layouts/_partials/`.
+- CI: added Node, `npm ci`, and Pagefind index steps to GitHub Pages workflow.
+
+### Removed
+- PaperMod theme submodule.
+- `hugo.yaml` and `hugo_bak.yaml` (replaced by `config/_default/`).
+- `content/search.md` (PaperMod Fuse-based search page; replaced by Pagefind).
