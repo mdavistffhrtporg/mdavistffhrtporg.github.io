@@ -1,0 +1,34 @@
+{
+  "name": "mdavistffhrtporg.github.io",
+  "version": "0.3.0",
+  "description": "matthewd.xyz — personal site, writing, and projects (Aegis, AttackMap, et al).",
+  "author": "Matthew A. Davis <matthewd@matthewd.xyz>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mdavistffhrtporg/mdavistffhrtporg.github.io.git"
+  },
+  "scripts": {
+    "create": "hugo new",
+    "dev": "hugo server --disableFastRender --noHTTPCache",
+    "build": "hugo --minify --gc && pagefind --site public",
+    "build:hugo": "hugo --minify --gc",
+    "build:search": "pagefind --site public",
+    "format": "prettier **/** -w -c"
+  },
+  "dependencies": {
+    "@tabler/icons": "^3.36.1",
+    "@tailwindcss/typography": "^0.5.16",
+    "autoprefixer": "^10.4.20",
+    "pagefind": "^1.4.0",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^3.4.18"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
