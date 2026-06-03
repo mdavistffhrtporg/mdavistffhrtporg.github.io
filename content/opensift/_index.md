@@ -58,4 +58,4 @@ Hobby proof-of-concept. Functional for personal study use; not packaged for gene
 ## Where to read more
 
 - [Repository](https://github.com/mlaify/OpenSift) — source, install, mode templates
-- [Build principles](/build-principles/) — the conventions every mlaify project follows
+- [Build principles](/principles/) — the conventions every project of mine follows

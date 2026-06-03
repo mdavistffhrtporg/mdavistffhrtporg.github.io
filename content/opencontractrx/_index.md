@@ -45,4 +45,4 @@ Active v1 goals with baseline platform scaffolding. The schema and data model ar
 ## Where to read more
 
 - [Repository](https://github.com/mlaify/OpenContractRx) — source, schemas, deploy notes
-- [Build principles](/build-principles/) — the conventions every mlaify project follows
+- [Build principles](/principles/) — the conventions every project of mine follows

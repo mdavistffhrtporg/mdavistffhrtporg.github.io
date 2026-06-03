@@ -401,5 +401,5 @@ Near-term development priorities (from the current docs snapshot):
 ## Where to go next
 
 - [Repository](https://github.com/mlaify/OmekaRapper) — source, install instructions, issues
-- [Open Source portfolio](/docs/projects/) — the rest of the mlaify open-source projects
-- [Build principles](/build-principles/) — conventions every mlaify project follows
+- [Open Source portfolio](/projects/) — the rest of my open-source projects
+- [Build principles](/principles/) — conventions every project of mine follows
