@@ -65,6 +65,28 @@ If any rule misses (you see a 200 or the wrong location), open the Cloudflare da
 - `preserve_path_suffix` toggle not enabled.
 - Source URL has a different trailing slash than what was uploaded.
 
+### Path-rewriting rules: subpath_matching must be **false**
+
+**Important Cloudflare semantic:** when `subpath_matching=true` AND `preserve_path_suffix=true`, Cloudflare effectively *ignores the target URL's path component* — it only swaps the host. This works when the source path equals the target path (e.g. `/aegis/` → `/aegis/`), but breaks for rules where the path itself changes (e.g. `/build-principles/` → `/principles/` would actually resolve to `/build-principles/` on the new host).
+
+The CSV's 4 path-rewriting rules therefore use `subpath_matching=false` + `preserve_path_suffix=false` (exact-match):
+
+- `/build-principles/` → `/principles/`
+- `/docs/project-omekarapper/` → `/omekarapper/`
+- `/docs/project-opensift/` → `/opensift/`
+- `/docs/project-opencontractrx/` → `/opencontractrx/`
+- `/` (catchall) → `/projects/`
+
+Trade-off: these rules now match only the exact URL — no sub-paths. In practice none of those source URLs have children (each was a single page on mlaify.io), so this is fine. Any unknown sub-path falls through to the GH Pages origin, which now serves matthewd.xyz content (matthewd's CNAME claims mlaify.io as an alias), so a request to e.g. `mlaify.io/build-principles/anything-unknown` lands on matthewd's 404 page.
+
+If the initial CSV was uploaded with the buggy toggle settings, fix in the dashboard:
+
+1. Open the List `mlaify-io-sunset`.
+2. Edit each of the 5 rules above.
+3. Toggle **Subpath matching** to **OFF** and **Preserve path suffix** to **OFF**.
+4. Save.
+5. Re-run the smoke test from Step 4 above — all should now redirect to the rewritten target.
+
 ## Step 5: Remove DNS records for opensift.org and siftbook.org
 
 Both side domains were CNAME'd at GitHub Pages via the mlaify.github.io repo's CNAME file. After plan Task 4 trims that CNAME, those domains stop being claimed by GH Pages. The DNS records also need removing.
