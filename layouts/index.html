@@ -14,7 +14,7 @@
           {{ site.Params.tagline }}
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="/posts/" class="btn btn-primary">Read writing</a>
+          <a href="/writing/" class="btn btn-primary">Read writing</a>
           <a href="/me/" class="btn btn-ghost">About</a>
         </div>
       </div>
@@ -26,12 +26,12 @@
 <section class="container-page py-16">
   <div class="mb-10 flex items-end justify-between">
     <h2 class="text-3xl font-semibold tracking-tight text-ink-900 dark:text-white">Latest writing</h2>
-    <a href="/posts/" class="text-sm font-medium text-copper-700 hover:text-copper-800 dark:text-copper-400 dark:hover:text-copper-300">
+    <a href="/writing/" class="text-sm font-medium text-copper-700 hover:text-copper-800 dark:text-copper-400 dark:hover:text-copper-300">
       All posts →
     </a>
   </div>
 
-  {{- $posts := first 5 (where site.RegularPages "Section" "posts") }}
+  {{- $posts := first 5 (where site.RegularPages "Section" "writing") }}
   <ul class="divide-y divide-ink-200 dark:divide-ink-800">
     {{- range $posts }}
       <li class="py-5">

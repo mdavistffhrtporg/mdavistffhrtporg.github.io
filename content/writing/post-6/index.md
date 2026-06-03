@@ -8,6 +8,8 @@ author: "Matt"
 
 description: "Thoughts on the D850, keep? Not keep?"
 summary: "I think I'll keep my Nikon D850. Even if it is just for hobby photography."
+aliases:
+  - /posts/post-6/
 
 tags: ["Nikon", "D850", "Photography"]
 categories: ["Photography"]

@@ -8,6 +8,8 @@ cover:
   relative: false # To use relative path for cover image, used in hugo Page-bundles
 date: 2024-04-01T00:00:00-00:00
 description: "Fedora Silverblue"
+aliases:
+  - /posts/post-1/
 tags: ["OSS", "Silverblue", "Fedora"]
 categories: ["OSS", "Fedora"]
 title: "Why did I choose Fedora Silverblue?"

@@ -8,6 +8,8 @@ cover:
   relative: false # To use relative path for cover image, used in hugo Page-bundles
 date: 2024-04-04T00:00:00-00:00
 description: "LUKS2 & TPM2"
+aliases:
+  - /posts/post-4/
 tags: ["OSS", "Fedora"]
 categories: ["OSS", "Fedora"]
 title: "How to unlock a LUKS2 disk with a TPM2 chip"
