@@ -31,6 +31,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `/posts/` renamed to `/writing/`. Old URLs (`/posts/<slug>/`) 301-redirect via Hugo aliases. `/archives/` → `/writing/`.
 - `/me/` renamed to `/about/`. Old URL redirects via alias. Body rewritten to remove the "professional photographer" lead (medical retirement), merge mlaify's umbrella copy in first-person, and link to `/principles/` for the longer story.
 - Top nav: Writing · Projects · About (was Posts · About). Footer gains Projects, Principles, and Contribute entries.
+- Site tagline shortened to "Open source contributor and writer." Description aligned.
+- Aegis `repoUrl` in `params.toml` now points to `mlaify/aegis-spec` (the protocol RFC repo) rather than a non-existent `mlaify/aegis`.
+- OG default image points at `images/pic-mdavis-home.svg` until a dedicated 1200×630 PNG is designed.
+- `config/_default/languages.toml` uses `locale`/`label` (Hugo ≥ 0.158 keys) instead of the deprecated `languageCode`/`languageName`.
 
 ### Removed
 - PaperMod theme submodule.
