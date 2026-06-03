@@ -1,0 +1,12 @@
+{{- $org := site.Params.org -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ $org.name | jsonify }},
+  "url": {{ $org.url | jsonify }},
+  "image": {{ $org.logo | jsonify }},
+  "sameAs": {{ $org.sameAs | jsonify }},
+  "jobTitle": "Open source software contributor, writer, security tooling builder"
+}
+</script>
