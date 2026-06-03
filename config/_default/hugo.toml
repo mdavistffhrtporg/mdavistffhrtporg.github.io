@@ -13,7 +13,7 @@ summarylength = 40
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
-copyRight = "© 2026 Matthew A. Davis"
+copyRight = "© 2026 Matt D."
 
 [outputs]
   home = ["html", "rss", "sitemap"]

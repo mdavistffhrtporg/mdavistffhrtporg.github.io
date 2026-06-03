@@ -28,7 +28,7 @@ cascade:
 
 ## Overview
 
-This website (`matthewd.xyz`) is a personal website operated by Matthew Davis.
+This website (`matthewd.xyz`) is a personal website operated by Matt D..
 
 The site is designed to be simple, secure, and respectful of visitor privacy. It does not sell personal data, does not run advertising networks, and does not engage in behavioral profiling or targeted advertising.
 

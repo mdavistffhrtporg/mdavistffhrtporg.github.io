@@ -304,7 +304,7 @@ Open `content/about/_index.md`. The current front-matter is:
 
 ```yaml
 ---
-title: "Matthew A. Davis"
+title: "Matt D."
 
 description: "My personal website"
 cascade:
@@ -318,7 +318,7 @@ Modify to:
 ---
 title: "About"
 
-description: "About Matthew A. Davis."
+description: "About Matt D.."
 aliases:
   - /me/
 cascade:
@@ -784,7 +784,7 @@ Read the current file. The front-matter (from Task 3) should be:
 ```yaml
 ---
 title: "About"
-description: "About Matthew A. Davis."
+description: "About Matt D.."
 aliases:
   - /me/
 cascade:
@@ -795,7 +795,7 @@ cascade:
 Replace everything after the closing `---` with this body. Aim for honest, calm tone — no marketing voice.
 
 ```markdown
-![Matthew A. Davis](/images/pic_mdavis.png)
+![Matt D.](/images/pic_mdavis.png)
 
 I'm Matt. I write at [Fedora Magazine](https://fedoramagazine.org/) as a contributor and editor for the [Fedora Project](https://fedoraproject.org/), and I build small, security-first open source tools — primarily [Aegis](/aegis/) (post-quantum encrypted messaging) and [AttackMap](/attackmap/) (defensive security analysis). A few smaller projects sit alongside those: [OmekaRapper](/omekarapper/), [OpenSift](/opensift/), and [OpenContractRx](/opencontractrx/).
 

@@ -1,6 +1,6 @@
 # matthewd.xyz
 
-Personal website and blog for Matthew Davis, built with Hugo and deployed via GitHub Pages.
+Personal website and blog for Matt D., built with Hugo and deployed via GitHub Pages.
 
 This site contains long-form writing, technical notes, and personal pages, and replaces the previous WordPress site hosted at `matthewd.xyz`.
 

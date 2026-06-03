@@ -183,7 +183,7 @@ Create `/Volumes/Dev/repos/GitHub/mdavistffhrtporg/mdavistffhrtporg.github.io/pa
   "name": "mdavistffhrtporg.github.io",
   "version": "0.3.0",
   "description": "matthewd.xyz — personal site, writing, and projects (Aegis, AttackMap, et al).",
-  "author": "Matthew A. Davis <matthewd@matthewd.xyz>",
+  "author": "Matt D. <matthewd@matthewd.xyz>",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -476,7 +476,7 @@ summarylength = 40
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
-copyRight = "© 2026 Matthew A. Davis"
+copyRight = "© 2026 Matt D."
 
 [outputs]
   home = ["html", "rss", "sitemap"]
@@ -656,7 +656,7 @@ Phase 1 nav is `Posts · About`. Phase 2 will rename Posts → Writing, add Proj
 - [ ] **Step 7: Write config/_default/params.toml**
 
 ```toml
-description = "Matthew A. Davis — open-source contributor, writer at Fedora Magazine, builds security-first tooling."
+description = "Matt D. — open-source contributor, writer at Fedora Magazine, builds security-first tooling."
 tagline = "OSS contributor · Writer at Fedora Magazine · Builds security-first tooling"
 
 # Default OG / Twitter image
@@ -672,8 +672,8 @@ showBuildInfo = false
 
 # JSON-LD organization schema
 [org]
-  name = "Matthew A. Davis"
-  legalName = "Matthew A. Davis"
+  name = "Matt D."
+  legalName = "Matt D."
   url = "https://matthewd.xyz/"
   logo = "https://matthewd.xyz/apple-touch-icon.png"
   sameAs = [
@@ -840,7 +840,7 @@ Replace mlaify footer with this exact content:
   <div class="container-page py-10">
     <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
       <div class="max-w-md text-sm text-ink-600 dark:text-ink-400">
-        © {{ now.Year }} Matthew A. Davis ·
+        © {{ now.Year }} Matt D. ·
         Content licensed
         <a class="underline hover:text-copper-700" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> ·
         Code licensed
@@ -971,7 +971,7 @@ Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
 - [ ] **Step 1: Write `layouts/_partials/post-meta.html`**
 
 ```html
-{{- $author := .Params.author | default "Matthew A. Davis" -}}
+{{- $author := .Params.author | default "Matt D." -}}
 <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-ink-500 dark:text-ink-400">
   <time datetime="{{ .Date.Format "2006-01-02" }}">
     {{ .Date.Format "January 2, 2006" }}
@@ -1234,11 +1234,11 @@ Phase 1 homepage = hero (avatar + name + tagline + CTAs) + latest writing. Proje
   <div class="container-page py-16 lg:py-24">
     <div class="flex flex-col items-start gap-8 sm:flex-row sm:items-center">
       <img src="{{ "/images/pic-mdavis-home.svg" | relURL }}"
-           alt="Matthew A. Davis"
+           alt="Matt D."
            class="h-24 w-24 flex-shrink-0 rounded-full object-cover ring-2 ring-copper-200 dark:ring-copper-800" />
       <div class="flex-1">
         <h1 class="text-balance text-4xl font-semibold tracking-tight text-ink-900 sm:text-5xl dark:text-white">
-          Matthew A. Davis
+          Matt D.
         </h1>
         <p class="mt-3 text-lg text-ink-600 dark:text-ink-300">
           {{ site.Params.tagline }}
