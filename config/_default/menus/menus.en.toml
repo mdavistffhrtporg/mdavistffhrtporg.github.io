@@ -15,7 +15,7 @@
 
 [[footer]]
   name = "Archives"
-  url = "/archives/"
+  url = "/posts/"
   weight = 20
 
 [[footer]]

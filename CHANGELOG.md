@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Replaced PaperMod theme with a port of mlaify's custom Hugo theme.
 - Moved Giscus partial from `layouts/partials/` to `layouts/_partials/`.
 - CI: added Node, `npm ci`, and Pagefind index steps to GitHub Pages workflow.
+- Footer "Archives" link now points to `/posts/` (the working blog index); `/archives/` 301-redirects there via Hugo alias for backward compatibility.
 
 ### Removed
 - PaperMod theme submodule.
