@@ -1,0 +1,57 @@
+title = "matthewd.xyz"
+baseurl = "https://matthewd.xyz/"
+disableAliases = false
+disableHugoGeneratorInject = true
+disableKinds = []
+enableEmoji = true
+enableGitInfo = false
+enableRobotsTXT = false
+locale = "en-US"
+rssLimit = 20
+summarylength = 40
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
+copyRight = "© 2026 Matthew A. Davis"
+
+[outputs]
+  home = ["html", "rss", "sitemap"]
+  page = ["html"]
+  section = ["html", "rss"]
+
+[outputFormats.sitemap]
+  mediaType = "application/xml"
+  baseName = "sitemap"
+  isHTML = false
+  isPlainText = true
+  noUgly = true
+  rel = "sitemap"
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.6
+
+[caches]
+  [caches.getresource]
+    dir = ":cacheDir/:project"
+    maxAge = -1
+
+[minify.tdewolff.html]
+  keepComments = false
+  keepWhitespace = false
+
+[pagination]
+  pagerSize = 10
+
+[imaging]
+  anchor = "Center"
+  bgColor = "#ffffff"
+  hint = "photo"
+  quality = 85
+  resampleFilter = "Lanczos"
+
+[security]
+  [security.funcs]
+    getenv = ["^HUGO_", "^CI$", "^URL$"]

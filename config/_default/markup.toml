@@ -1,0 +1,22 @@
+[goldmark.renderer]
+  unsafe = true
+
+[goldmark.parser]
+  autoHeadingID = true
+  autoHeadingIDType = "github"
+  [goldmark.parser.attribute]
+    block = true
+    title = true
+
+[highlight]
+  anchorLineNos = true
+  codeFences = true
+  guessSyntax = true
+  lineNos = false
+  noClasses = false
+  style = "monokai"
+  tabWidth = 2
+
+[tableOfContents]
+  endLevel = 4
+  startLevel = 2

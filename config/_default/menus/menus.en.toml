@@ -1,0 +1,49 @@
+[[main]]
+  name = "Posts"
+  url = "/posts/"
+  weight = 10
+
+[[main]]
+  name = "About"
+  url = "/me/"
+  weight = 20
+
+[[footer]]
+  name = "About"
+  url = "/me/"
+  weight = 10
+
+[[footer]]
+  name = "Archives"
+  url = "/posts/"
+  weight = 20
+
+[[footer]]
+  name = "Privacy"
+  url = "/privacy-policy/"
+  weight = 30
+
+[[footer]]
+  name = "Security"
+  url = "/security/"
+  weight = 40
+
+[[footer]]
+  name = "GitHub"
+  url = "https://github.com/mdavistffhrtporg"
+  weight = 50
+
+[[social]]
+  name = "Bluesky"
+  url = "https://bsky.app/profile/matthewd.xyz"
+  weight = 10
+
+[[social]]
+  name = "GitHub"
+  url = "https://github.com/mdavistffhrtporg"
+  weight = 20
+
+[[social]]
+  name = "GitLab"
+  url = "https://gitlab.com/matthewdxyz"
+  weight = 30
