@@ -7,6 +7,8 @@ draft: false
 weight: 60
 toc: true
 status: "alpha"
+aliases:
+  - /docs/project-opencontractrx/
 ---
 
 Repository: [mlaify/OpenContractRx](https://github.com/mlaify/OpenContractRx)

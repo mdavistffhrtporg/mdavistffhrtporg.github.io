@@ -7,6 +7,8 @@ draft: false
 weight: 40
 toc: true
 status: "alpha"
+aliases:
+  - /docs/project-omekarapper/
 ---
 
 {{< status "alpha" >}}
