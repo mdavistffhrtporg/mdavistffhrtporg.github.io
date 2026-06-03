@@ -7,6 +7,8 @@ draft: false
 weight: 50
 toc: true
 status: "alpha"
+aliases:
+  - /docs/project-opensift/
 ---
 
 Repository: [mlaify/OpenSift](https://github.com/mlaify/OpenSift)

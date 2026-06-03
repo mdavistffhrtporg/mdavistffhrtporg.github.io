@@ -2,8 +2,10 @@
 title: "Privacy Policy, Terms of Use, and Code of Conduct"
 
 description: "Privacy Policy, Terms of Use, and Code of Conduct"
+aliases:
+  - /privacy/
 cascade:
-comments: false
+  comments: false
 ---
 
 # Privacy Policy, Terms of Use, and Code of Conduct

@@ -8,6 +8,8 @@ weight: 20
 toc: true
 sidebar: false
 lead: "The five conventions every project of mine follows."
+aliases:
+  - /build-principles/
 ---
 
 These are not aspirational. They are the conventions every project of mine actually follows. If a project on this site appears to violate one of them, it's a bug — file an issue.
