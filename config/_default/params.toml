@@ -1,4 +1,4 @@
-description = "Matthew A. Davis — open source contributor and writer."
+description = "Matt D. — open source contributor and writer."
 tagline = "Open source contributor and writer."
 
 # Default OG / Twitter image
@@ -14,8 +14,8 @@ showBuildInfo = false
 
 # JSON-LD organization schema
 [org]
-  name = "Matthew A. Davis"
-  legalName = "Matthew A. Davis"
+  name = "Matt D."
+  legalName = "Matt D."
   url = "https://matthewd.xyz/"
   logo = "https://matthewd.xyz/apple-touch-icon.png"
   sameAs = [

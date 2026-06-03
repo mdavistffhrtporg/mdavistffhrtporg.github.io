@@ -1,7 +1,7 @@
 # matthewd.xyz × mlaify merge — design spec
 
 **Date:** 2026-06-03
-**Author:** Matthew A. Davis
+**Author:** Matt D.
 **Status:** Draft, awaiting approval
 
 ## Summary
@@ -159,7 +159,7 @@ Copper is used for: nav-active state, link color, blockquote left rule, button p
 │  matthewd.xyz       Writing  Projects  About    🔍   ☀/🌙       │
 ├────────────────────────────────────────────────────────────────┤
 │                                                                │
-│  (avatar)   Matthew A. Davis                                   │
+│  (avatar)   Matt D.                                   │
 │             OSS contributor · Writer at Fedora Magazine        │
 │             · Builds security-first tooling                    │
 │             [ Read writing ]   About →                         │
@@ -178,7 +178,7 @@ Copper is used for: nav-active state, link color, blockquote left rule, button p
 │  • LUKS2 & TPM2             Apr 4,  2024                       │
 │                                                  All writing → │
 ├────────────────────────────────────────────────────────────────┤
-│  footer: © 2026 Matthew A. Davis · CC BY-NC-SA 4.0 (content)   │
+│  footer: © 2026 Matt D. · CC BY-NC-SA 4.0 (content)   │
 │  · MIT (code) · Privacy · Security · Humans · GitHub Pages     │
 └────────────────────────────────────────────────────────────────┘
 ```

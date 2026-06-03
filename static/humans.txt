@@ -1,5 +1,5 @@
 /* TEAM */
-Owner / Author: Matthew Davis
+Owner / Author: Matt D.
 Contact: privacy@matthewd.xyz
 GitHub: https://github.com/mdavistffhrtporg
 Location: United States

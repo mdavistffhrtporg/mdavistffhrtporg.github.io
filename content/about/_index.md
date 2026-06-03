@@ -1,14 +1,14 @@
 ---
 title: "About"
 
-description: "About Matthew A. Davis."
+description: "About Matt D.."
 aliases:
   - /me/
 cascade:
   comments: false
 ---
 
-![Matthew A. Davis](/images/pic_mdavis.png)
+![Matt D.](/images/pic_mdavis.png)
 
 I'm Matt. I write at [Fedora Magazine](https://fedoramagazine.org/) as a contributor and editor for the [Fedora Project](https://fedoraproject.org/), and I build small, security-first open source tools — primarily [Aegis](/aegis/) (post-quantum encrypted messaging) and [AttackMap](/attackmap/) (defensive security analysis). A few smaller projects sit alongside those: [OmekaRapper](/omekarapper/), [OpenSift](/opensift/), and [OpenContractRx](/opencontractrx/).
 

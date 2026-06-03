@@ -1,4 +1,4 @@
-# Matthew Davis security contacts and policy
+# Matt D. security contacts and policy
 
 # Our security contact channels
 Contact: mailto:security@matthewd.xyz
