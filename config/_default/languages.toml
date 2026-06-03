@@ -1,4 +1,4 @@
 [en]
-  languageName = "English"
-  languageCode = "en-US"
+  label = "English"
+  locale = "en-US"
   weight = 1

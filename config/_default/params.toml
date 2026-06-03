@@ -1,8 +1,8 @@
-description = "Matthew A. Davis — open-source contributor, writer at Fedora Magazine, builds security-first tooling."
-tagline = "OSS contributor · Writer at Fedora Magazine · Builds security-first tooling"
+description = "Matthew A. Davis — open source contributor and writer."
+tagline = "Open source contributor and writer."
 
 # Default OG / Twitter image
-ogImage = "images/og-default.png"
+ogImage = "images/pic-mdavis-home.svg"
 twitterHandle = ""
 
 # Repo / org links
@@ -32,7 +32,7 @@ showBuildInfo = false
     status = "alpha"
     accent = "aegis"
     url = "/aegis/"
-    repoUrl = "https://github.com/mlaify/aegis"
+    repoUrl = "https://github.com/mlaify/aegis-spec"
     weight = 10
 
   [products.attackmap]
