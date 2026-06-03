@@ -1,9 +1,11 @@
 ---
-title: "Matthew A. Davis"
+title: "About"
 
-description: "My personal website"
+description: "About Matthew A. Davis."
+aliases:
+  - /me/
 cascade:
-comments: false
+  comments: false
 ---
 
 ![targets](/images/pic_mdavis.png)
