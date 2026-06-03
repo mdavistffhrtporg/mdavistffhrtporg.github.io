@@ -8,14 +8,31 @@ cascade:
   comments: false
 ---
 
-![targets](/images/pic_mdavis.png)
+![Matthew A. Davis](/images/pic_mdavis.png)
 
-Hi,
+I'm Matt. I write at [Fedora Magazine](https://fedoramagazine.org/) as a contributor and editor for the [Fedora Project](https://fedoraproject.org/), and I build small, security-first open source tools — primarily [Aegis](/aegis/) (post-quantum encrypted messaging) and [AttackMap](/attackmap/) (defensive security analysis). A few smaller projects sit alongside those: [OmekaRapper](/omekarapper/), [OpenSift](/opensift/), and [OpenContractRx](/opencontractrx/).
 
-**Matt** is a professional photographer and open source software contributor. He enjoys using his Oklahoma Joes offset smoker in his free time, and sitting outside on hot summer nights smoking brisket and pork butts. He actively contributes to the [Fedora Magazine](https://fedoramagazine.org/), a part of the [Fedora Project](https://fedoraproject.org/), as a writer and editor. He has been in the world of open source software since 2003, and has used Fedora Linux since it was known as Fedora Core 1.
+I've been working in open source since 2003 — long enough to remember Fedora Core 1. My background is psychology and interdisciplinary studies: BA from the [University of Texas at Arlington](https://www.uta.edu/) in 2010, MS from the [University of North Texas](https://www.unt.edu/) in 2019. While at UTA I did neuroscience research in electrophysiology and pain and contributed to several publications. Day job has been in IT and cybersecurity.
 
-In August 2006, he began his studies at the [University of Texas at Arlington](https://www.uta.edu/), majoring in Psychology. At the university, he conducted research in neuroscience, specifically specializing in electrophysiology and pain. While conducting research, he obtained several publications. He graduated with his Bachelor of Arts in Psychology in 2010. In May 2016, he began studying for his Master of Science in Interdisciplinary Studies at the [University of North Texas](https://www.unt.edu/), and graduated in 2019.
+I used to do professional photography. I no longer do — that part of my life ended for medical reasons. Some older photo essays are still on the blog and they'll stay there; I just don't make new ones.
 
-Currently, he is a writer and editor for the Fedora Project's Fedora Magazine. By using open source software, his goal is to learn from that software, and spread the word about the freedoms that come with it. He is a big time computer enthusiast, with a background in Information Technology, and Cybersecurity.
+## What I'm working on
 
-![targets](/images/mdavis_sig.png)
+The way the projects on this site look — small, protocol-first, status-honest, documentation-close-to-code — isn't an accident. It comes from a few convictions:
+
+**Security architecture is design work, not paperwork.** Threat models and protocol RFCs are first-class artifacts in my repos, written before the code stabilizes, not retroactively to satisfy a checklist. When a project lacks a threat model, I say so on its page.
+
+**Status you can trust beats marketing.** Every project here carries an explicit status. "Alpha" means alpha. "Hardening pending" means I haven't yet hardened it. I'd rather lose a lead than oversell a `v0.1`.
+
+**Composability over monoliths.** I favor module boundaries that let other people swap pieces — analyzers in AttackMap, identity providers and relays in Aegis, AI providers in OmekaRapper and OpenSift. Costs more upfront and pays off everywhere downstream.
+
+See [build principles](/principles/) for the longer version.
+
+## Elsewhere
+
+- [GitHub](https://github.com/mdavistffhrtporg) — code
+- [Bluesky](https://bsky.app/profile/matthewd.xyz) — short-form
+- [GitLab](https://gitlab.com/matthewdxyz) — mirrors
+- [Fedora Magazine](https://fedoramagazine.org/) — writing
+
+![](/images/mdavis_sig.png)
