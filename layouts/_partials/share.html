@@ -1,0 +1,27 @@
+{{- $url := printf "%s%s" site.BaseURL (.RelPermalink | strings.TrimPrefix "/") -}}
+{{- $text := .Title -}}
+<div class="mt-12 flex items-center gap-3 border-t border-ink-200 pt-6 text-sm dark:border-ink-800">
+  <span class="text-ink-500 dark:text-ink-400">Share:</span>
+  <a class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 hover:bg-copper-50 hover:text-copper-700 dark:hover:bg-copper-900/30 dark:hover:text-copper-300"
+     href="https://bsky.app/intent/compose?text={{ printf "%s %s" $text $url | urlquery }}"
+     target="_blank"
+     rel="noopener">
+    {{ partial "svg-icon.html" (dict "name" "brand-bluesky" "class" "h-4 w-4") }}
+    Bluesky
+  </a>
+  <button type="button"
+          class="copy-link inline-flex items-center gap-1.5 rounded-full px-3 py-1 hover:bg-copper-50 hover:text-copper-700 dark:hover:bg-copper-900/30 dark:hover:text-copper-300"
+          data-url="{{ $url }}">
+    {{ partial "svg-icon.html" (dict "name" "link" "class" "h-4 w-4") }}
+    Copy link
+  </button>
+</div>
+<script>
+  document.querySelectorAll('.copy-link').forEach(btn => {
+    btn.addEventListener('click', () => {
+      navigator.clipboard.writeText(btn.dataset.url);
+      btn.textContent = '✓ Copied';
+      setTimeout(() => { btn.textContent = 'Copy link'; }, 1500); /* graceful UX restore */
+    });
+  });
+</script>
