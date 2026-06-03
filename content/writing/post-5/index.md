@@ -8,6 +8,8 @@ cover:
   relative: false # To use relative path for cover image, used in hugo Page-bundles
 date: 2025-12-24T00:00:00-00:00
 description: "Happy Holidays"
+aliases:
+  - /posts/post-5/
 tags: ["Holidays"]
 categories: ["Wishes", "Uncategorized"]
 title: "Happy Holidays!"

@@ -24,5 +24,49 @@ showBuildInfo = false
     "https://bsky.app/profile/matthewd.xyz",
   ]
 
-# Empty products table — populated in Phase 2
+# Per-project params used by the /projects/ hub and homepage projects section.
 [products]
+  [products.aegis]
+    name = "Aegis"
+    tagline = "Post-quantum encrypted messaging, end to end."
+    status = "alpha"
+    accent = "aegis"
+    url = "/aegis/"
+    repoUrl = "https://github.com/mlaify/aegis"
+    weight = 10
+
+  [products.attackmap]
+    name = "AttackMap"
+    tagline = "Local-first defensive security analysis for real codebases."
+    status = "alpha"
+    accent = "attackmap"
+    url = "/attackmap/"
+    repoUrl = "https://github.com/mlaify/attackmap"
+    weight = 20
+
+  [products.omekarapper]
+    name = "OmekaRapper"
+    tagline = "AI-assisted cataloging built into the Omeka admin flow."
+    status = "alpha"
+    accent = "brand"
+    url = "/omekarapper/"
+    repoUrl = "https://github.com/mlaify/omekarapper"
+    weight = 30
+
+  [products.opensift]
+    name = "OpenSift"
+    tagline = "Quiz-mode study assistant for self-directed learners."
+    status = "alpha"
+    accent = "brand"
+    url = "/opensift/"
+    repoUrl = "https://github.com/mlaify/opensift"
+    weight = 40
+
+  [products.opencontractrx]
+    name = "OpenContractRx"
+    tagline = "Hospital pharmacy contract review, structured."
+    status = "alpha"
+    accent = "brand"
+    url = "/opencontractrx/"
+    repoUrl = "https://github.com/mlaify/opencontractrx"
+    weight = 50

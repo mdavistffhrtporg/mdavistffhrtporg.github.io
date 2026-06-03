@@ -8,6 +8,8 @@ cover:
   relative: false # To use relative path for cover image, used in hugo Page-bundles
 date: 2024-04-02T00:00:00-00:00
 description: "Poetry"
+aliases:
+  - /posts/post-2/
 tags: ["Poetry"]
 categories: ["Poetry"]
 title: "Poem: The black ink cafe"

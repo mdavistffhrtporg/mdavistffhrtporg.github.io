@@ -1,22 +1,42 @@
 [[main]]
-  name = "Posts"
-  url = "/posts/"
+  name = "Writing"
+  url = "/writing/"
   weight = 10
 
 [[main]]
-  name = "About"
-  url = "/me/"
+  name = "Projects"
+  url = "/projects/"
   weight = 20
+
+[[main]]
+  name = "About"
+  url = "/about/"
+  weight = 30
 
 [[footer]]
   name = "About"
-  url = "/me/"
+  url = "/about/"
   weight = 10
 
 [[footer]]
+  name = "Projects"
+  url = "/projects/"
+  weight = 15
+
+[[footer]]
   name = "Archives"
-  url = "/posts/"
+  url = "/writing/"
   weight = 20
+
+[[footer]]
+  name = "Principles"
+  url = "/principles/"
+  weight = 25
+
+[[footer]]
+  name = "Contribute"
+  url = "/contribute/"
+  weight = 28
 
 [[footer]]
   name = "Privacy"

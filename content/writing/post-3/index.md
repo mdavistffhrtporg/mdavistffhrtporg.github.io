@@ -8,6 +8,8 @@ cover:
   relative: false # To use relative path for cover image, used in hugo Page-bundles
 date: 2024-04-03T00:00:00-00:00
 description: "Open Source Software"
+aliases:
+  - /posts/post-3/
 tags: ["OSS"]
 categories: ["OSS", "Fedora"]
 title: "I contribute to the Fedora Magazine, what about you?"
