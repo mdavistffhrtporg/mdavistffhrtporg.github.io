@@ -2,7 +2,7 @@
 title: "AttackMap architecture"
 description: "Deep-dive into the AttackMap pipeline: data models, module responsibilities, the translation gateway, security overlay, MITRE ATT&CK mapping, and the graph model."
 date: 2026-05-08T00:00:00-05:00
-lastmod: 2026-05-08T00:00:00-05:00
+lastmod: 2026-07-05T00:00:00-05:00
 draft: false
 weight: 25
 toc: true
@@ -16,7 +16,16 @@ lead: "How AttackMap turns raw source code into a prioritized defensive review �
 |---|---|
 | `cli.py` | Entry point; argument parsing; orchestrates the pipeline |
 | `analyzers.py` | Analyzer discovery (entry points), selection, installation, execution, and merge |
-| `scanner.py` | Generic file walker; framework-agnostic route/external-call/db/auth/secret extraction |
+| `scanner.py` | Generic file walker; framework-agnostic route/external-call/db/auth/secret extraction; drives the taint, SBOM, and authz passes |
+| `taint.py` | Import-graph data-flow pass; request-to-sink reachability (SSRF, SSTI, NoSQL, deserialization, code/command exec, SQL, dynamic open) → `TaintChain` |
+| `authz.py` | BOLA/IDOR detection: id-bearing routes reaching data with no ownership check → `BolaCandidate` |
+| `sbom.py` | Direct-dependency inventory across 5 ecosystems → `DependencyHint` |
+| `cve.py` | OSV.dev CVE cross-reference with on-disk cache (`--cve`) → `Vulnerability` |
+| `config_scanner.py` | YAML/TOML/JSON/INI/`.env` config extraction (DB strings, service URLs, secret literals) |
+| `topology.py` | Service-graph construction (nodes + typed edges) |
+| `diff.py` | Baseline diff + stable finding ids (`--baseline`, `--fail-on-new-high`) |
+| `sarif.py` | SARIF 2.1.0 serialization |
+| `diagrams.py` | Mermaid + Graphviz export of attack paths and topology |
 | `analyzer.py` | `AttackSurface` construction; attack-surface classification heuristics |
 | `recon_to_analysis.py` | Formal translation gateway: auth-hint filtering + parallel translations |
 | `threat_model.py` | `Finding` and `AttackPath` generation (heuristic chain-linking) |

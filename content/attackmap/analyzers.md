@@ -1,13 +1,13 @@
 ---
 title: "AttackMap analyzers"
-description: "Complete reference for all 13 AttackMap ecosystem analyzer plugins — what each detects, what frameworks it covers, and how to install it."
+description: "Complete reference for all 14 AttackMap ecosystem analyzer plugins — what each detects, what frameworks it covers, and how to install it."
 date: 2026-05-08T00:00:00-05:00
-lastmod: 2026-05-08T00:00:00-05:00
+lastmod: 2026-07-05T00:00:00-05:00
 draft: false
 weight: 20
 toc: true
 accent: "attackmap"
-lead: "13 ecosystem-specific analyzer plugins, each a standalone pip package discovered at runtime via Python entry points."
+lead: "14 ecosystem-specific analyzer plugins, each a standalone pip package discovered at runtime via Python entry points."
 ---
 
 ## How analyzers work
@@ -361,6 +361,46 @@ pip install git+https://github.com/mlaify/attackmap-analyzer-terraform.git
 
 ---
 
+## IaC (Docker / Compose / CI)
+
+**Package:** `attackmap-analyzer-iac`
+**Entry point:** `iac`
+**Languages:** Dockerfile, YAML, shell
+**Targets:** Container and CI/CD build configuration
+
+### What it detects
+
+Complements Terraform by covering the build-and-ship layer:
+
+**Dockerfile hardening:**
+- Missing `USER` directive (containers running as root)
+- Missing `HEALTHCHECK`
+- Base images pinned by tag rather than digest
+- `RUN curl … | sh` pipe-to-shell installs and remote `ADD` fetches
+
+**docker-compose:**
+- Services and their host port bindings (`0.0.0.0` exposure)
+- `privileged: true` containers
+- Host bind mounts (e.g. `/var/run/docker.sock`)
+- `env_file` references and inline secrets
+
+**GitHub Actions workflows:**
+- `pull_request_target` combined with a checkout of untrusted code
+- Third-party actions pinned by tag rather than commit SHA
+- Missing top-level `permissions`
+- Secret references
+
+**Other:** `.env` templates (secret inventory) and shell installers
+(`curl | bash`, `sudo`, permissive `chmod`).
+
+**Install:**
+
+```bash
+pip install git+https://github.com/mlaify/attackmap-analyzer-iac.git
+```
+
+---
+
 ## AT Protocol
 
 **Package:** `attackmap-analyzer-atproto`
@@ -482,6 +522,7 @@ pip install git+https://github.com/mlaify/attack-map-analyzer-omeka-s.git
 | PHP web | `php_web` | PHP | Laravel, Symfony, Slim, generic | [GitHub](https://github.com/mlaify/attackmap-analyzer-php-web) |
 | PHP Laminas | `php_laminas` | PHP | Laminas, Laminas API Tools | [GitHub](https://github.com/mlaify/attackmap-analyzer-php-laminas) |
 | Terraform | `terraform` | HCL | AWS, Azure, GCP | [GitHub](https://github.com/mlaify/attackmap-analyzer-terraform) |
+| IaC | `iac` | Dockerfile, YAML, shell | Docker, Compose, GitHub Actions | [GitHub](https://github.com/mlaify/attackmap-analyzer-iac) |
 | AT Protocol | `atproto` | JS/TS | Bluesky PDS, ATProto relay, AppView | [GitHub](https://github.com/mlaify/attackmap-analyzer-atproto) |
 | C | `c` | C | microhttpd, mongoose, libcurl | [GitHub](https://github.com/mlaify/attackmap-analyzer-c) |
 | C++ | `cpp` | C++ | Crow, Pistache, Drogon | [GitHub](https://github.com/mlaify/attackmap-analyzer-cpp) |

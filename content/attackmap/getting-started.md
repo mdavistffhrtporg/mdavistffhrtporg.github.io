@@ -2,7 +2,7 @@
 title: "Getting started with AttackMap"
 description: "Install AttackMap, run your first scan, understand the output artifacts, and wire it into CI — all in one page."
 date: 2026-05-08T00:00:00-05:00
-lastmod: 2026-05-08T00:00:00-05:00
+lastmod: 2026-07-05T00:00:00-05:00
 draft: false
 weight: 10
 toc: true
@@ -21,15 +21,25 @@ AttackMap has no runtime dependencies beyond Python's standard library. The `ant
 ## Install
 
 ```bash
-# Standard pip
+# Core + all 14 analyzer plugins (recommended)
+pip install "attackmap[all]"
+
+# Core only
 pip install attackmap
 
 # With optional LLM support
-pip install attackmap[llm]
+pip install "attackmap[llm]"
 
 # Recommended: isolated environment
 python -m venv .venv && source .venv/bin/activate
-pip install attackmap
+pip install "attackmap[all]"
+```
+
+Also available via Homebrew and Docker:
+
+```bash
+brew install mlaify/tap/attackmap
+docker pull ghcr.io/mlaify/attackmap
 ```
 
 Verify the install:
@@ -61,7 +71,7 @@ The command walks the repository, runs all applicable analyzers, and writes a `r
 
 ## Understanding the output
 
-Seven files are produced. They build on each other:
+A `reports/` directory is produced. The files build on each other:
 
 ```
 reports/
@@ -70,8 +80,14 @@ reports/
 ├── defensive-review.md         ← prioritized findings + recommendations
 ├── defensive-review.json       ← machine-readable version of the above
 ├── review-context-pack.json    ← analyzer metadata for downstream tools
-└── attackmap-report.json       ← monolithic: everything in one file
+├── attackmap-report.json       ← monolithic: everything in one file
+├── attackmap-report.sarif      ← SARIF 2.1.0 for GitHub Code Scanning
+├── attackmap-paths.md / .dot   ← attack-path diagrams (Mermaid + Graphviz)
+└── attackmap-topology.md/.dot  ← service-topology diagrams
 ```
+
+With `--baseline`, a `attackmap-diff.md` is added; with `--llm`,
+`defensive-review-llm.md` and its `.meta.json`.
 
 ### architecture.md
 
@@ -200,6 +216,51 @@ attackmap analyze . --llm --llm-model claude-opus-4-7 --llm-effort high
 
 If the LLM call fails, AttackMap still completes and writes all non-LLM artifacts. The failure is logged to stderr.
 
+## Dependency CVE scanning
+
+Every scan inventories direct dependencies (an SBOM) from `pyproject.toml`,
+`requirements.txt`, `package.json`, `go.mod`, `Cargo.toml`, and `composer.json`.
+Add `--cve` to cross-reference each against [OSV.dev](https://osv.dev):
+
+```bash
+attackmap analyze . --cve
+```
+
+- Off by default — it does network I/O.
+- Results are cached under `~/.attackmap/cache/osv/` (24h TTL, override with
+  `ATTACKMAP_OSV_CACHE_TTL_HOURS`). Repeat scans don't re-hit the network.
+- Offline-tolerant: a warm cache still surfaces results; fresh misses are skipped.
+- Each vulnerable dependency becomes a finding, CVSS-mapped to severity, with the
+  advisory IDs and fixed-version range in the evidence.
+
+## PR diff gating
+
+Compare a scan against a prior report and optionally fail the build when new
+HIGH findings appear — a lightweight alternative to Code Scanning:
+
+```bash
+attackmap analyze . \
+  --baseline previous/attackmap-report.json \
+  --diff-output reports/attackmap-diff.md \
+  --fail-on-new-high
+```
+
+Findings carry a stable id (hash of the finding title) that survives line drift,
+so a finding present in both scans is treated as *persisted*, not *new*. The diff
+has New / Persisted / Resolved sections suitable for a PR comment.
+
+## Recommending plugins for a repo
+
+Not sure which analyzers a repository needs?
+
+```bash
+attackmap suggest .            # print ranked pip-install lines
+attackmap suggest . --install  # and install the missing ones
+```
+
+`suggest` inspects manifests, file extensions, and framework markers and
+recommends only the plugins that would deepen coverage.
+
 ## Wiring into CI
 
 ### GitHub Actions
@@ -220,7 +281,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install AttackMap
-        run: pip install attackmap
+        run: pip install "attackmap[all]"
 
       - name: Run analysis
         run: attackmap analyze . --output reports --format json
@@ -238,7 +299,7 @@ jobs:
 attackmap:
   image: python:3.12-slim
   script:
-    - pip install attackmap
+    - pip install "attackmap[all]"
     - attackmap analyze . --output reports --format json
   artifacts:
     paths:
@@ -251,7 +312,7 @@ attackmap:
 | Exit code | Meaning |
 |---|---|
 | `0` | Analysis complete, no errors |
-| `1` | Analysis complete, critical findings present (when `--fail-on-high` is set) |
+| `1` | New HIGH findings introduced vs. baseline (when `--fail-on-new-high` + `--baseline` are set) |
 | `2` | Fatal error (bad path, unreadable files, etc.) |
 
 ## Source quality warnings
@@ -262,7 +323,7 @@ Low-quality signals are **not suppressed** — they appear in the raw JSON — b
 
 ## Next steps
 
-- [Analyzers reference](/attackmap/analyzers/) — all 13 ecosystem analyzers
+- [Analyzers reference](/attackmap/analyzers/) — all 14 ecosystem analyzers
 - [Architecture deep-dive](/attackmap/architecture/) — pipeline, data models, SDK contracts
 - [Use cases](/attackmap/use-cases/) — CI gating, unknown-repo onboarding, architecture review prep
 - [Custom analyzer SDK](/attackmap/sdk/) — build your own ecosystem analyzer

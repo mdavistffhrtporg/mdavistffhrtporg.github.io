@@ -2,7 +2,7 @@
 title: "AttackMap use cases"
 description: "Concrete ways teams use AttackMap: onboarding unknown repos, gating CI/CD, prepping architecture reviews, and security due diligence."
 date: 2026-05-08T00:00:00-05:00
-lastmod: 2026-05-08T00:00:00-05:00
+lastmod: 2026-07-05T00:00:00-05:00
 draft: false
 weight: 30
 toc: true
@@ -19,7 +19,7 @@ lead: "Three concrete workflows where AttackMap replaces hours of manual work."
 ```bash
 git clone https://github.com/vendor/their-service.git
 cd their-service
-pip install attackmap
+pip install "attackmap[all]"
 attackmap analyze . --output security-review
 ```
 
@@ -90,7 +90,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install AttackMap
-        run: pip install attackmap
+        run: pip install "attackmap[all]"
 
       - name: Run analysis
         run: attackmap analyze . --output reports --format json
@@ -127,7 +127,7 @@ attackmap:
   image: python:3.12-slim
   stage: security
   before_script:
-    - pip install attackmap
+    - pip install "attackmap[all]"
   script:
     - attackmap analyze . --output reports --format json
     - |
@@ -158,23 +158,28 @@ From `defensive-review.json`:
 | New secret hints | count of `raw_structured_signals.secret_hints` | Block merge |
 | Trust boundary violations | `notable_observations[].kind == "trust_boundary_violation"` | Require senior review |
 
-### Baseline diffing
+### Baseline diffing (built in)
 
-For more sophisticated gating, compare the current scan to a baseline stored in your repository:
+Diff mode is native — no custom script needed. Point `--baseline` at a prior
+report and gate the PR on newly-introduced HIGH findings:
 
 ```bash
 # Generate baseline on main branch
 git checkout main
 attackmap analyze . --output .attackmap-baseline --format json
 
-# On PR branch: run and compare
+# On PR branch: run, diff against baseline, fail on new HIGH findings
 git checkout feature-branch
-attackmap analyze . --output .attackmap-pr --format json
-
-python scripts/compare_attackmap.py \
-  --baseline .attackmap-baseline/defensive-review.json \
-  --current .attackmap-pr/defensive-review.json
+attackmap analyze . --output .attackmap-pr \
+  --baseline .attackmap-baseline/attackmap-report.json \
+  --diff-output .attackmap-pr/attackmap-diff.md \
+  --fail-on-new-high
 ```
+
+Findings carry a stable id (a hash of the finding title) that survives line
+drift, so a finding present in both scans is *persisted*, not *new*. The
+`attackmap-diff.md` has New / Persisted / Resolved sections — drop it straight
+into a PR comment.
 
 ---
 
@@ -220,9 +225,9 @@ attackmap analyze . --output pre-review --llm --llm-effort high
 **Scenario:** Evaluating a vendor, an open-source dependency, or a target for acquisition. You need a security signal quickly without a full penetration test.
 
 ```bash
-# Clone target, run analysis, add LLM for narrative
+# Clone target, run analysis with dependency CVE scan + LLM narrative
 git clone <target-repo>
-attackmap analyze <target-repo> --output due-diligence --llm --llm-effort max
+attackmap analyze <target-repo> --output due-diligence --cve --llm --llm-effort max
 ```
 
 **What to look for in the output:**
@@ -230,6 +235,9 @@ attackmap analyze <target-repo> --output due-diligence --llm --llm-effort max
 | Signal | What it means |
 |---|---|
 | Many high-risk routes with no auth signals | Auth model may be inconsistent or absent |
+| BOLA/IDOR findings | Object-level authorization may be missing |
+| Injection sink taint chains (SSRF, SSTI, deserialization) | Request-reachable dangerous sinks |
+| Vulnerable dependencies (`--cve`) | Known CVEs in the dependency tree |
 | Secrets in secret_hints | Secrets may be committed or leaked in env var names |
 | External calls to unusual domains | Third-party data sharing; supply chain surface |
 | Trust boundary violations | Service-to-service calls without enforcement |

@@ -2,12 +2,12 @@
 title: "AttackMap"
 description: "A defensive security analysis engine that reads your source code, maps attack surfaces, and produces prioritized evidence-anchored findings — local-first, no cloud account required."
 date: 2026-05-08T00:00:00-05:00
-lastmod: 2026-05-08T00:00:00-05:00
+lastmod: 2026-07-05T00:00:00-05:00
 draft: false
 accent: "attackmap"
 ---
 
-{{< status "alpha" >}}
+{{< status "beta" >}}
 
 ## What AttackMap is
 
@@ -29,11 +29,23 @@ AttackMap is a **defensive** tool. Output is oriented entirely toward remediatio
 {{< feature-grid cols="4" >}}
 
 {{< feature icon="puzzle" title="Modular analyzer ecosystem" >}}
-13 community analyzer plugins covering Python, Node/TypeScript, Go, Java/Spring, .NET, Rust, PHP (Laminas + generic), C, C++, Terraform, AT Protocol, and Omeka-S — each a separate pip-installable package, discovered at runtime via Python entry points.
+14 community analyzer plugins covering Python, Node/TypeScript, Go, Java/Spring, .NET, Rust, PHP (Laminas + generic), C, C++, Terraform, IaC (Docker/Compose/GitHub Actions), AT Protocol, and Omeka-S — each a separate pip-installable package, discovered at runtime via Python entry points. `attackmap suggest` recommends the right set for a repo.
 {{< /feature >}}
 
 {{< feature icon="arrow-right-bar" title="Five-stage pipeline" >}}
 Recon → Merge → Translation → Security Overlay → Reporting. Each stage has a stable contract. Results from any stage can be consumed independently as structured JSON.
+{{< /feature >}}
+
+{{< feature icon="git-branch" title="Data-flow / injection detection" >}}
+A lightweight import-graph taint pass (Python + JS/TS) traces request-to-sink reachability and flags SSRF, SSTI, NoSQL injection, unsafe deserialization, and code/command execution — gated on request-container access for precision.
+{{< /feature >}}
+
+{{< feature icon="shield-lock" title="Broken authorization (BOLA/IDOR)" >}}
+Flags routes that take a resource id, reach a datastore, and have no ownership check nearby — OWASP API #1 — by composing routes, per-route auth attribution, and taint reachability into one finding.
+{{< /feature >}}
+
+{{< feature icon="package" title="SBOM + CVE cross-reference" >}}
+Inventories direct dependencies across five ecosystems and, with `--cve`, cross-references OSV.dev (cached, offline-tolerant) to surface known-vulnerable packages inline with the architecture narrative.
 {{< /feature >}}
 
 {{< feature icon="shield-search" title="Attack surface classification" >}}
@@ -74,6 +86,8 @@ Source code
     Analyzers (built-in + plugins) walk the repo and emit typed signals:
     Routes, ExternalCalls, DatabaseHints, AuthHints, ServiceHints,
     EdgeHints, EntrypointHints, ProtocolHints, FrameworkHints, SecretHints
+    Plus three cross-file passes: taint (TaintChain), SBOM
+    (DependencyHint, +Vulnerability with --cve), and authz (BolaCandidate)
 
     ▼
 [2] Merge
@@ -96,13 +110,16 @@ Source code
 [5] Reporting
     architecture.md  attack-surface.md  defensive-review.md
     defensive-review.json  review-context-pack.json  attackmap-report.json
-    (optional) defensive-review-llm.md  (requires --llm)
+    attackmap-report.sarif  (GitHub Code Scanning)
+    attackmap-paths.md/.dot  attackmap-topology.md/.dot  (Mermaid + Graphviz)
+    (optional) attackmap-diff.md          (with --baseline)
+    (optional) defensive-review-llm.md    (with --llm)
 ```
 
 ## Quick start
 
 ```bash
-pip install attackmap
+pip install "attackmap[all]"      # core + all 14 analyzer plugins
 
 # Analyze the current directory
 attackmap analyze .
@@ -110,15 +127,24 @@ attackmap analyze .
 # Specify output directory
 attackmap analyze . --output my-reports
 
+# Cross-reference dependencies against OSV.dev (network, cached)
+attackmap analyze . --cve
+
 # Enable LLM prose review (uses claude CLI by default)
 attackmap analyze . --llm
 
-# Run a specific ecosystem analyzer only
-attackmap analyze . --module python
+# PR gating: diff against a prior report, fail on new HIGH findings
+attackmap analyze . --baseline prev/attackmap-report.json --fail-on-new-high
+
+# Recommend the analyzer plugins this repo needs
+attackmap suggest .
 
 # List installed and available analyzers
 attackmap modules
 ```
+
+Also available via `brew install mlaify/tap/attackmap` and
+`docker pull ghcr.io/mlaify/attackmap`.
 
 See [Getting Started](/attackmap/getting-started/) for the full walkthrough.
 
@@ -134,14 +160,18 @@ Running `attackmap analyze .` produces a `reports/` directory:
 | `defensive-review.json` | JSON | Machine-readable review with full evidence chains |
 | `review-context-pack.json` | JSON | Analyzer metadata and context for downstream tools |
 | `attackmap-report.json` | JSON | Monolithic output: all of the above in one file |
+| `attackmap-report.sarif` | SARIF 2.1.0 | GitHub Code Scanning / VS Code / SARIF consumers |
+| `attackmap-paths.md` · `.dot` | Mermaid · Graphviz | Attack-path flowcharts |
+| `attackmap-topology.md` · `.dot` | Mermaid · Graphviz | Service-topology graph |
+| `attackmap-diff.md` | Markdown | New/Persisted/Resolved diff (`--baseline` only) |
 | `defensive-review-llm.md` | Markdown | LLM-generated prose review (`--llm` only) |
 
 ## What's strong, what's maturing
 
 {{< callout type="note" >}}
-**Strong today:** modular analyzer execution with entry-point discovery, framework-aware route extraction (FastAPI/Flask/Express/Spring/axum/chi), chain-aware threat modeling, source-quality weighting, stable machine-readable JSON artifacts, 13-plugin ecosystem, local eval harness.
+**Strong today:** modular analyzer execution with entry-point discovery (14-plugin ecosystem, published to PyPI/Homebrew/GHCR); framework-aware route extraction (FastAPI/Flask/Express/Spring/axum/chi); chain-aware threat modeling; asset + control modeling; injection/data-flow detection (SSRF, SSTI, NoSQL, deserialization, code/command exec); BOLA/IDOR authorization checks; SBOM + OSV.dev CVE cross-reference; SARIF, Mermaid/Graphviz, and PR-diff output; stable machine-readable JSON artifacts; local eval harness. Validated against real-world codebases.
 
-**Still maturing:** hint taxonomy migration (the `auth_hints` field is being decoupled from non-auth metadata), deeper detection-opportunity rule generation, richer service-topology graphing, relay federation.
+**Still maturing:** taint and BOLA are Python + JS/TS and path-template scoped (more languages, query-param / RPC-method authorization planned); CVE lookup resolves a best-effort concrete version, not full lockfile ranges; insecure-crypto and web-hardening detectors are in flight; deeper detection-opportunity rule generation. AttackMap is heuristic by design — findings are confidence-tiered evidence, not proof.
 {{< /callout >}}
 
 ## Repositories
