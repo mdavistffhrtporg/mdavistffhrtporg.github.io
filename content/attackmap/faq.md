@@ -2,7 +2,7 @@
 title: "AttackMap FAQ"
 description: "Common questions about AttackMap: how it differs from SAST, what it costs, what languages it supports, and how to extend it."
 date: 2026-05-08T00:00:00-05:00
-lastmod: 2026-05-08T00:00:00-05:00
+lastmod: 2026-07-05T00:00:00-05:00
 draft: false
 weight: 40
 toc: true
@@ -24,7 +24,7 @@ It is not a linter, not a SAST tool, and not a fuzzer. It is closer to what a se
 |---|---|---|
 | **Unit of analysis** | Whole system (routes, trust boundaries, attack chains) | Individual code patterns (line-level findings) |
 | **Output** | Prioritized defensive review with attack paths and ATT&CK mapping | Finding list (vulnerability X at line Y) |
-| **Coverage** | Architectural risk, missing controls, asset exposure | Code-level bugs, known-vulnerable patterns |
+| **Coverage** | Architectural risk, missing controls, asset exposure, request-to-sink injection reachability, BOLA/IDOR, dependency CVEs | Code-level bugs, known-vulnerable patterns |
 | **False positives** | Lower (system-level evidence) | Higher (pattern matching without context) |
 | **Complements** | Both — use SAST for code bugs, AttackMap for architectural risk |
 
@@ -42,9 +42,9 @@ When `--llm` is used, the LLM backend receives only a structured evidence pack (
 
 ## What languages and frameworks does it support?
 
-13 ecosystem-specific analyzer plugins are available:
+14 ecosystem-specific analyzer plugins are available:
 
-| Language | Frameworks |
+| Language / target | Frameworks |
 |---|---|
 | Python | Django, FastAPI, Flask, Starlette, AIOHTTP, Sanic, Litestar |
 | JavaScript/TypeScript | Node.js services, distributed architectures |
@@ -52,12 +52,17 @@ When `--llm` is used, the LLM backend receives only a structured evidence pack (
 | Java / Kotlin | Spring Boot, Spring MVC, JAX-RS, Ktor |
 | C# | ASP.NET Core, Minimal APIs, Razor Pages |
 | Rust | axum, actix-web, rocket |
-| PHP | Laravel, Symfony, Slim, Laminas |
+| PHP | Generic PHP web, Laminas / Zend MVC, Omeka-S |
 | HCL | Terraform (AWS, Azure, GCP) |
+| IaC | Dockerfile, docker-compose, GitHub Actions, `.env` templates, shell installers |
 | C | microhttpd, mongoose |
 | C++ | Crow, Pistache, Drogon |
 | AT Protocol | Bluesky PDS, ATProto relay, AppView |
-| Omeka-S | Omeka-S digital collections platform |
+
+Beyond ecosystem recon, the core engine adds cross-file **data-flow / injection
+detection** (SSRF, SSTI, NoSQL, unsafe deserialization, code/command execution),
+**BOLA/IDOR** authorization checks, and an **SBOM + CVE** dependency scan
+(`--cve`, via OSV.dev) — across whatever languages your installed analyzers cover.
 
 See the [Analyzers reference](/attackmap/analyzers/) for details on each.
 
@@ -104,11 +109,9 @@ It may produce false positives for:
 
 ## What is the `auth_hints` overloading issue I see mentioned?
 
-In earlier versions, analyzers stuffed non-auth metadata (service names, edge descriptions, protocol notes) into the `auth_hints` field because the typed hint fields (`service_hints`, `edge_hints`, etc.) didn't exist yet.
+In early versions, analyzers stuffed non-auth metadata (service names, edge descriptions, protocol notes) into the `auth_hints` field because the typed hint fields (`service_hints`, `edge_hints`, etc.) didn't exist yet.
 
-The translation gateway filters these before building attack surfaces — it strips any hint with a `service_name:`, `handler_type:`, `edge:`, `entrypoint:`, `atproto_`, or `framework:` prefix from the auth_hints list before classification.
-
-Phase-2 analyzers use the dedicated typed fields and avoid the overloading. This is an active migration with no action required from users.
+Current analyzers use the dedicated typed fields. The translation gateway still filters defensively before building attack surfaces — stripping any hint with a `service_name:`, `handler_type:`, `edge:`, `entrypoint:`, `atproto_`, or `framework:` prefix from the auth_hints list before classification — so route-scoped auth attribution stays accurate. No action is required from users.
 
 ---
 
@@ -148,7 +151,7 @@ The harness compares a review against a fixture (expected findings, chains, tech
 
 ## What version is current?
 
-**v0.1.0** is the current release. The project is in active development. See [GitHub releases](https://github.com/mlaify/AttackMap/releases) for the changelog.
+**v0.2.0** is the current release (beta) — published to PyPI, Homebrew, and GHCR. The project is in active development. See [GitHub releases](https://github.com/mlaify/AttackMap/releases) and the [CHANGELOG](https://github.com/mlaify/AttackMap/blob/main/CHANGELOG.md).
 
 ---
 
