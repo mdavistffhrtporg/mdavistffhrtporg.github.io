@@ -37,11 +37,27 @@ Recon → Merge → Translation → Security Overlay → Reporting. Each stage h
 {{< /feature >}}
 
 {{< feature icon="git-branch" title="Data-flow / injection detection" >}}
-A lightweight import-graph taint pass (Python + JS/TS) traces request-to-sink reachability and flags SSRF, SSTI, NoSQL injection, unsafe deserialization, and code/command execution — gated on request-container access for precision.
+A lightweight import-graph taint pass (Python + JS/TS) traces request-to-sink reachability and flags SSRF, SSTI, NoSQL injection, unsafe deserialization, code/command execution, open redirect, and dynamic file open — gated on request-container access for precision.
+{{< /feature >}}
+
+{{< feature icon="bug" title="Novel vulnerability-class detectors" >}}
+Per-file detectors for bug classes beyond the taint families: prototype pollution, mass assignment, JWT weakness (alg=none / unverified), XXE, ReDoS, insecure upload, and GraphQL introspection exposure — each anchored on a concrete risky construct, ATT&amp;CK-mapped.
 {{< /feature >}}
 
 {{< feature icon="shield-lock" title="Broken authorization (BOLA/IDOR)" >}}
 Flags routes that take a resource id, reach a datastore, and have no ownership check nearby — OWASP API #1 — by composing routes, per-route auth attribution, and taint reachability into one finding.
+{{< /feature >}}
+
+{{< feature icon="key" title="Insecure crypto &amp; web hardening" >}}
+Flags weak hashing/ciphers, ECB, static IV/salt, insecure RNG for secrets, and broken TLS verification — plus web-hardening misconfigurations (wildcard CORS with credentials, disabled CSRF, insecure cookies, unsafe-inline CSP, shipped debug mode).
+{{< /feature >}}
+
+{{< feature icon="zoom-exclamation" title="Anomaly / outlier detection" >}}
+Surfaces the odd-one-out among sibling routes — a handler that breaks the auth, validation, or method norm its resource cohort establishes — with confidence scaled by how consistent the cohort is.
+{{< /feature >}}
+
+{{< feature icon="flame" title="Exploitability fusion" >}}
+Fuses sink danger, exposure, entry-route auth, reachability, and data sensitivity into a deterministic, fully-explainable 0–100 "exploitable now" score, ranking route→sink combinations so the highest real risk leads the report.
 {{< /feature >}}
 
 {{< feature icon="package" title="SBOM + CVE cross-reference" >}}
@@ -72,6 +88,10 @@ Beyond findings, AttackMap emits defender-facing runtime signal hints: structure
 `--llm` generates a Claude-powered prose defensive review. Supports API key, OAuth token, and claude CLI backends. Five effort tiers. The LLM sees only your evidence pack, never raw source.
 {{< /feature >}}
 
+{{< feature icon="crosshair" title="Vulnerability-hypothesis hunting" >}}
+`--hunt` has Claude reason over the full evidence pack as a red-team analyst and propose ranked, evidence-cited exploit-chain **hypotheses** — framed as human-verifiable leads, not detections. Honesty guardrails: no CVE assignment, no exploit code, and each lead states what to verify.
+{{< /feature >}}
+
 {{< /feature-grid >}}
 
 ## How a run works
@@ -86,8 +106,9 @@ Source code
     Analyzers (built-in + plugins) walk the repo and emit typed signals:
     Routes, ExternalCalls, DatabaseHints, AuthHints, ServiceHints,
     EdgeHints, EntrypointHints, ProtocolHints, FrameworkHints, SecretHints
-    Plus three cross-file passes: taint (TaintChain), SBOM
-    (DependencyHint, +Vulnerability with --cve), and authz (BolaCandidate)
+    Plus cross-file passes: taint (TaintChain), SBOM (DependencyHint,
+    +Vulnerability with --cve), authz (BolaCandidate), and anomaly (Anomaly).
+    Per-file passes add crypto, web-hardening, and novel-vuln weaknesses.
 
     ▼
 [2] Merge
@@ -164,14 +185,16 @@ Running `attackmap analyze .` produces a `reports/` directory:
 | `attackmap-paths.md` · `.dot` | Mermaid · Graphviz | Attack-path flowcharts |
 | `attackmap-topology.md` · `.dot` | Mermaid · Graphviz | Service-topology graph |
 | `attackmap-diff.md` | Markdown | New/Persisted/Resolved diff (`--baseline` only) |
+| `attackmap-exploitability.md` | Markdown | "Most exploitable now" — ranked route→sink scores with factors |
 | `defensive-review-llm.md` | Markdown | LLM-generated prose review (`--llm` only) |
+| `vulnerability-hypotheses.md` | Markdown | LLM exploit-chain hypotheses to confirm (`--hunt` only) |
 
 ## What's strong, what's maturing
 
 {{< callout type="note" >}}
-**Strong today:** modular analyzer execution with entry-point discovery (14-plugin ecosystem, published to PyPI/Homebrew/GHCR); framework-aware route extraction (FastAPI/Flask/Express/Spring/axum/chi); chain-aware threat modeling; asset + control modeling; injection/data-flow detection (SSRF, SSTI, NoSQL, deserialization, code/command exec); BOLA/IDOR authorization checks; SBOM + OSV.dev CVE cross-reference; SARIF, Mermaid/Graphviz, and PR-diff output; stable machine-readable JSON artifacts; local eval harness. Validated against real-world codebases.
+**Strong today:** modular analyzer execution with entry-point discovery (14-plugin ecosystem, published to PyPI/Homebrew/GHCR); framework-aware route extraction (FastAPI/Flask/Express/Spring/axum/chi); chain-aware threat modeling; asset + control modeling; injection/data-flow detection (SSRF, SSTI, NoSQL, deserialization, code/command exec, open redirect); novel vuln-class detectors (prototype pollution, mass assignment, JWT, XXE, ReDoS, insecure upload, GraphQL exposure); BOLA/IDOR authorization checks; insecure-crypto and web-hardening detection; anomaly/outlier detection; deterministic exploitability fusion; `--hunt` LLM hypothesis mode; SBOM + OSV.dev CVE cross-reference; SARIF, Mermaid/Graphviz, and PR-diff output; a live progress bar with ETA; stable machine-readable JSON artifacts; local eval harness. Validated against real-world codebases.
 
-**Still maturing:** taint and BOLA are Python + JS/TS and path-template scoped (more languages, query-param / RPC-method authorization planned); CVE lookup resolves a best-effort concrete version, not full lockfile ranges; insecure-crypto and web-hardening detectors are in flight; deeper detection-opportunity rule generation. AttackMap is heuristic by design — findings are confidence-tiered evidence, not proof.
+**Still maturing:** taint and BOLA are Python + JS/TS and path-template scoped (more languages, query-param / RPC-method authorization planned); the import-graph taint walk approximates call-edges with import-edges (precision over recall); CVE lookup resolves a best-effort concrete version, not full lockfile ranges, and isn't yet fused into per-path exploitability; anomaly and exploitability reasoning is route-cohort and taint-chain scoped. AttackMap is heuristic by design — findings are confidence-tiered evidence, not proof.
 {{< /callout >}}
 
 ## Repositories

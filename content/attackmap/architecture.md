@@ -16,9 +16,15 @@ lead: "How AttackMap turns raw source code into a prioritized defensive review �
 |---|---|
 | `cli.py` | Entry point; argument parsing; orchestrates the pipeline |
 | `analyzers.py` | Analyzer discovery (entry points), selection, installation, execution, and merge |
-| `scanner.py` | Generic file walker; framework-agnostic route/external-call/db/auth/secret extraction; drives the taint, SBOM, and authz passes |
-| `taint.py` | Import-graph data-flow pass; request-to-sink reachability (SSRF, SSTI, NoSQL, deserialization, code/command exec, SQL, dynamic open) → `TaintChain` |
+| `scanner.py` | Generic file walker; framework-agnostic route/external-call/db/auth/secret extraction; drives the per-file and cross-file passes; emits scan progress |
+| `progress.py` | TTY-aware live scan progress bar + ETA (`--no-progress` to disable) |
+| `taint.py` | Import-graph data-flow pass; request-to-sink reachability (SSRF, SSTI, NoSQL, deserialization, code/command exec, SQL, dynamic open, open redirect) → `TaintChain` |
+| `weaknesses.py` | Novel vuln-class detectors (prototype pollution, mass assignment, JWT, XXE, ReDoS, insecure upload, GraphQL exposure) → `CodeWeakness` |
+| `crypto.py` · `webhardening.py` | Insecure-crypto/weak-randomness and web-hardening detection → `CryptoWeakness` · `WebHardeningIssue` |
 | `authz.py` | BOLA/IDOR detection: id-bearing routes reaching data with no ownership check → `BolaCandidate` |
+| `anomalies.py` | Peer-cohort anomaly / outlier detection (auth/validation/method odd-one-out) → `Anomaly` |
+| `exploitability.py` | Deterministic, explainable 0–100 "exploitable now" fusion over route→sink paths → `ExploitabilityScore` |
+| `srcpaths.py` | Shared test-file and infra/static-route classification for the heuristic passes |
 | `sbom.py` | Direct-dependency inventory across 5 ecosystems → `DependencyHint` |
 | `cve.py` | OSV.dev CVE cross-reference with on-disk cache (`--cve`) → `Vulnerability` |
 | `config_scanner.py` | YAML/TOML/JSON/INI/`.env` config extraction (DB strings, service URLs, secret literals) |

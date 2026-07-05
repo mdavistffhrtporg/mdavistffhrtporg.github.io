@@ -24,7 +24,7 @@ It is not a linter, not a SAST tool, and not a fuzzer. It is closer to what a se
 |---|---|---|
 | **Unit of analysis** | Whole system (routes, trust boundaries, attack chains) | Individual code patterns (line-level findings) |
 | **Output** | Prioritized defensive review with attack paths and ATT&CK mapping | Finding list (vulnerability X at line Y) |
-| **Coverage** | Architectural risk, missing controls, asset exposure, request-to-sink injection reachability, BOLA/IDOR, dependency CVEs | Code-level bugs, known-vulnerable patterns |
+| **Coverage** | Architectural risk, missing controls, asset exposure, request-to-sink injection reachability, novel vuln classes, BOLA/IDOR, crypto/web-hardening, anomaly outliers, ranked exploitability, dependency CVEs | Code-level bugs, known-vulnerable patterns |
 | **False positives** | Lower (system-level evidence) | Higher (pattern matching without context) |
 | **Complements** | Both — use SAST for code bugs, AttackMap for architectural risk |
 
@@ -60,9 +60,14 @@ When `--llm` is used, the LLM backend receives only a structured evidence pack (
 | AT Protocol | Bluesky PDS, ATProto relay, AppView |
 
 Beyond ecosystem recon, the core engine adds cross-file **data-flow / injection
-detection** (SSRF, SSTI, NoSQL, unsafe deserialization, code/command execution),
-**BOLA/IDOR** authorization checks, and an **SBOM + CVE** dependency scan
-(`--cve`, via OSV.dev) — across whatever languages your installed analyzers cover.
+detection** (SSRF, SSTI, NoSQL, unsafe deserialization, code/command execution,
+open redirect), **novel vuln-class detectors** (prototype pollution, mass
+assignment, JWT, XXE, ReDoS, insecure upload, GraphQL exposure),
+**BOLA/IDOR** authorization checks, **insecure-crypto and web-hardening**
+detection, **anomaly/outlier** detection, a deterministic **exploitability
+score**, an **SBOM + CVE** dependency scan (`--cve`, via OSV.dev), and — with
+`--hunt` — an **LLM vulnerability-hypothesis** mode. Across whatever languages
+your installed analyzers cover.
 
 See the [Analyzers reference](/attackmap/analyzers/) for details on each.
 
@@ -151,7 +156,7 @@ The harness compares a review against a fixture (expected findings, chains, tech
 
 ## What version is current?
 
-**v0.2.0** is the current release (beta) — published to PyPI, Homebrew, and GHCR. The project is in active development. See [GitHub releases](https://github.com/mlaify/AttackMap/releases) and the [CHANGELOG](https://github.com/mlaify/AttackMap/blob/main/CHANGELOG.md).
+**v0.3.0** is the current release (beta) — published to PyPI, Homebrew, and GHCR. It adds novel vuln-class detectors, anomaly/outlier detection, deterministic exploitability scoring, the `--hunt` LLM hypothesis mode, and a live scan progress bar. The project is in active development. See [GitHub releases](https://github.com/mlaify/AttackMap/releases) and the [CHANGELOG](https://github.com/mlaify/AttackMap/blob/main/CHANGELOG.md).
 
 ---
 
