@@ -2,7 +2,7 @@
 title: "AttackMap architecture"
 description: "Deep-dive into the AttackMap pipeline: data models, module responsibilities, the translation gateway, security overlay, MITRE ATT&CK mapping, and the graph model."
 date: 2026-05-08T00:00:00-05:00
-lastmod: 2026-07-05T00:00:00-05:00
+lastmod: 2026-07-06T00:00:00-05:00
 draft: false
 weight: 25
 toc: true
@@ -18,9 +18,9 @@ lead: "How AttackMap turns raw source code into a prioritized defensive review �
 | `analyzers.py` | Analyzer discovery (entry points), selection, installation, execution, and merge |
 | `scanner.py` | Generic file walker; framework-agnostic route/external-call/db/auth/secret extraction; drives the per-file and cross-file passes; emits scan progress |
 | `progress.py` | TTY-aware live scan progress bar + ETA (`--no-progress` to disable) |
-| `taint.py` | Import-graph data-flow pass; request-to-sink reachability (SSRF, SSTI, NoSQL, deserialization, code/command exec, SQL, dynamic open, open redirect) → `TaintChain` |
+| `taint.py` | Import-graph data-flow pass (Python, JS/TS, Go module-path, PHP PSR-4); request-to-sink reachability (SSRF, SSTI, NoSQL, deserialization, code/command exec, SQL, dynamic open, open redirect), parameterized-SQL and auth-middleware aware → `TaintChain` |
 | `weaknesses.py` | Novel vuln-class detectors (prototype pollution, mass assignment, JWT, XXE, ReDoS, insecure upload, GraphQL exposure) → `CodeWeakness` |
-| `crypto.py` · `webhardening.py` | Insecure-crypto/weak-randomness and web-hardening detection → `CryptoWeakness` · `WebHardeningIssue` |
+| `crypto.py` · `webhardening.py` | Insecure-crypto/weak-randomness (Python, JS/TS, Go, PHP) and web-hardening detection → `CryptoWeakness` · `WebHardeningIssue` |
 | `authz.py` | BOLA/IDOR detection: id-bearing routes reaching data with no ownership check → `BolaCandidate` |
 | `anomalies.py` | Peer-cohort anomaly / outlier detection (auth/validation/method odd-one-out) → `Anomaly` |
 | `exploitability.py` | Deterministic, explainable 0–100 "exploitable now" fusion over route→sink paths → `ExploitabilityScore` |

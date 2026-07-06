@@ -2,7 +2,7 @@
 title: "AttackMap"
 description: "A defensive security analysis engine that reads your source code, maps attack surfaces, and produces prioritized evidence-anchored findings — local-first, no cloud account required."
 date: 2026-05-08T00:00:00-05:00
-lastmod: 2026-07-05T00:00:00-05:00
+lastmod: 2026-07-06T00:00:00-05:00
 draft: false
 accent: "attackmap"
 ---
@@ -37,7 +37,7 @@ Recon → Merge → Translation → Security Overlay → Reporting. Each stage h
 {{< /feature >}}
 
 {{< feature icon="git-branch" title="Data-flow / injection detection" >}}
-A lightweight import-graph taint pass (Python + JS/TS) traces request-to-sink reachability and flags SSRF, SSTI, NoSQL injection, unsafe deserialization, code/command execution, open redirect, and dynamic file open — gated on request-container access for precision.
+A lightweight import-graph taint pass (**Python, JS/TS, Go, and PHP**) traces request-to-sink reachability and flags SSRF, SSTI, NoSQL injection, unsafe deserialization, code/command execution, open redirect, and dynamic file open — gated on request-container access, parameterized-SQL awareness, and per-language import resolution (Go module-path, PHP PSR-4 autoload) for precision.
 {{< /feature >}}
 
 {{< feature icon="bug" title="Novel vulnerability-class detectors" >}}
@@ -89,7 +89,11 @@ Beyond findings, AttackMap emits defender-facing runtime signal hints: structure
 {{< /feature >}}
 
 {{< feature icon="crosshair" title="Vulnerability-hypothesis hunting" >}}
-`--hunt` has Claude reason over the full evidence pack as a red-team analyst and propose ranked, evidence-cited exploit-chain **hypotheses** — framed as human-verifiable leads, not detections. Honesty guardrails: no CVE assignment, no exploit code, and each lead states what to verify.
+`--hunt` has Claude reason over the full evidence pack as a red-team analyst and propose ranked, evidence-cited exploit-chain **hypotheses** — framed as human-verifiable leads, not detections. `--hunt --verify` then adjudicates each lead (CONFIRMED / REFUTED / NEEDS-REVIEW) against the actual cited source. Honesty guardrails: no CVE assignment, no exploit code, and each lead states what to verify.
+{{< /feature >}}
+
+{{< feature icon="wrench" title="Remediation + PR bot" >}}
+`--remediate` proposes review-first fixes for the highest-priority findings. A reusable GitHub **Action + PR bot** runs AttackMap on every pull request — inline SARIF annotations plus a summary comment carrying the exploitability ranking and diff-gate status (new vs. resolved findings).
 {{< /feature >}}
 
 {{< /feature-grid >}}
@@ -187,14 +191,16 @@ Running `attackmap analyze .` produces a `reports/` directory:
 | `attackmap-diff.md` | Markdown | New/Persisted/Resolved diff (`--baseline` only) |
 | `attackmap-exploitability.md` | Markdown | "Most exploitable now" — ranked route→sink scores with factors |
 | `defensive-review-llm.md` | Markdown | LLM-generated prose review (`--llm` only) |
-| `vulnerability-hypotheses.md` | Markdown | LLM exploit-chain hypotheses to confirm (`--hunt` only) |
+| `vulnerability-hypotheses.md` | Markdown | LLM exploit-chain hypotheses to confirm, with CONFIRMED/REFUTED verdicts under `--verify` (`--hunt`) |
+| `remediation.md` | Markdown | Review-first fix proposals for top findings (`--remediate` only) |
+| `attackmap-pr-comment.md` | Markdown | PR-bot summary comment — new/resolved findings, gate status, top exploitable (`--pr-comment`) |
 
 ## What's strong, what's maturing
 
 {{< callout type="note" >}}
-**Strong today:** modular analyzer execution with entry-point discovery (14-plugin ecosystem, published to PyPI/Homebrew/GHCR); framework-aware route extraction (FastAPI/Flask/Express/Spring/axum/chi); chain-aware threat modeling; asset + control modeling; injection/data-flow detection (SSRF, SSTI, NoSQL, deserialization, code/command exec, open redirect); novel vuln-class detectors (prototype pollution, mass assignment, JWT, XXE, ReDoS, insecure upload, GraphQL exposure); BOLA/IDOR authorization checks; insecure-crypto and web-hardening detection; anomaly/outlier detection; deterministic exploitability fusion; `--hunt` LLM hypothesis mode; SBOM + OSV.dev CVE cross-reference; SARIF, Mermaid/Graphviz, and PR-diff output; a live progress bar with ETA; stable machine-readable JSON artifacts; local eval harness. Validated against real-world codebases.
+**Strong today:** modular analyzer execution with entry-point discovery (14-plugin ecosystem, published to PyPI/Homebrew/GHCR); framework-aware route extraction (FastAPI/Flask/Express/Spring/axum/chi/gin/echo/Laravel/Symfony); chain-aware threat modeling; asset + control modeling; **multi-language** injection/data-flow detection across Python, JS/TS, Go, and PHP (SSRF, SSTI, NoSQL, deserialization, code/command exec, open redirect), with parameterized-SQL and auth-middleware awareness; novel vuln-class detectors (prototype pollution, mass assignment, JWT, XXE, ReDoS, insecure upload, GraphQL exposure); BOLA/IDOR authorization checks; insecure-crypto and web-hardening detection; anomaly/outlier detection; deterministic exploitability fusion with known-CVE-on-path amplification; `--hunt` LLM hypothesis mode with `--verify` source adjudication; `--remediate` fix proposals; a GitHub Action + PR bot; SBOM + OSV.dev CVE cross-reference; SARIF, Mermaid/Graphviz, and PR-diff output; a live progress bar with ETA; stable machine-readable JSON artifacts; local eval harness. Validated against real-world codebases (Bluesky, Juice Shop, BookStack, PocketBase, Apple oss-distributions).
 
-**Still maturing:** taint and BOLA are Python + JS/TS and path-template scoped (more languages, query-param / RPC-method authorization planned); the import-graph taint walk approximates call-edges with import-edges (precision over recall); CVE lookup resolves a best-effort concrete version, not full lockfile ranges, and isn't yet fused into per-path exploitability; anomaly and exploitability reasoning is route-cohort and taint-chain scoped. AttackMap is heuristic by design — findings are confidence-tiered evidence, not proof.
+**Still maturing:** taint and BOLA are path-template scoped and cover Python, JS/TS, Go, and PHP (more languages and query-param / RPC-method authorization planned); the import-graph taint walk approximates call-edges with import-edges (precision over recall); CVE lookup resolves a best-effort concrete version, not full lockfile ranges; anomaly and exploitability reasoning is route-cohort and taint-chain scoped. AttackMap is heuristic by design — findings are confidence-tiered evidence, not proof.
 {{< /callout >}}
 
 ## Repositories

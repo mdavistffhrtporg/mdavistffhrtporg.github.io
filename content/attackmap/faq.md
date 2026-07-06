@@ -2,7 +2,7 @@
 title: "AttackMap FAQ"
 description: "Common questions about AttackMap: how it differs from SAST, what it costs, what languages it supports, and how to extend it."
 date: 2026-05-08T00:00:00-05:00
-lastmod: 2026-07-05T00:00:00-05:00
+lastmod: 2026-07-06T00:00:00-05:00
 draft: false
 weight: 40
 toc: true
@@ -61,13 +61,16 @@ When `--llm` is used, the LLM backend receives only a structured evidence pack (
 
 Beyond ecosystem recon, the core engine adds cross-file **data-flow / injection
 detection** (SSRF, SSTI, NoSQL, unsafe deserialization, code/command execution,
-open redirect), **novel vuln-class detectors** (prototype pollution, mass
-assignment, JWT, XXE, ReDoS, insecure upload, GraphQL exposure),
-**BOLA/IDOR** authorization checks, **insecure-crypto and web-hardening**
-detection, **anomaly/outlier** detection, a deterministic **exploitability
-score**, an **SBOM + CVE** dependency scan (`--cve`, via OSV.dev), and — with
-`--hunt` — an **LLM vulnerability-hypothesis** mode. Across whatever languages
-your installed analyzers cover.
+open redirect) — with import-graph taint now spanning **Python, JS/TS, Go
+(module-path resolution), and PHP (PSR-4 autoload)** — plus **novel vuln-class
+detectors** (prototype pollution, mass assignment, JWT, XXE, ReDoS, insecure
+upload, GraphQL exposure), **BOLA/IDOR** authorization checks,
+**insecure-crypto and web-hardening** detection, **anomaly/outlier** detection,
+a deterministic **exploitability score** (with known-CVE-on-path amplification),
+an **SBOM + CVE** dependency scan (`--cve`, via OSV.dev), an **`--hunt`** LLM
+vulnerability-hypothesis mode (`--hunt --verify` adjudicates each lead against
+the source), **`--remediate`** fix proposals, and a GitHub **Action + PR bot**.
+Across whatever languages your installed analyzers cover.
 
 See the [Analyzers reference](/attackmap/analyzers/) for details on each.
 
@@ -156,7 +159,7 @@ The harness compares a review against a fixture (expected findings, chains, tech
 
 ## What version is current?
 
-**v0.3.0** is the current release (beta) — published to PyPI, Homebrew, and GHCR. It adds novel vuln-class detectors, anomaly/outlier detection, deterministic exploitability scoring, the `--hunt` LLM hypothesis mode, and a live scan progress bar. The project is in active development. See [GitHub releases](https://github.com/mlaify/AttackMap/releases) and the [CHANGELOG](https://github.com/mlaify/AttackMap/blob/main/CHANGELOG.md).
+**v0.4.0** is the current release (beta) — published to PyPI, Homebrew, and GHCR. It extends import-graph taint to **Go and PHP** (four languages total: Python, JS/TS, Go, PHP), sharpens front-end precision (route extraction, auth-middleware awareness, parameterized-SQL), fuses known dependency CVEs into the exploitability score, and adds a **GitHub PR bot + Action**, **`--remediate`** (review-first fixes), and **`--hunt --verify`** (adjudicate each lead against the actual source). The project is in active development. See [GitHub releases](https://github.com/mlaify/AttackMap/releases) and the [CHANGELOG](https://github.com/mlaify/AttackMap/blob/main/CHANGELOG.md).
 
 ---
 

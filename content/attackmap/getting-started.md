@@ -2,7 +2,7 @@
 title: "Getting started with AttackMap"
 description: "Install AttackMap, run your first scan, understand the output artifacts, and wire it into CI — all in one page."
 date: 2026-05-08T00:00:00-05:00
-lastmod: 2026-07-05T00:00:00-05:00
+lastmod: 2026-07-06T00:00:00-05:00
 draft: false
 weight: 10
 toc: true
@@ -215,6 +215,39 @@ attackmap analyze . --llm --llm-model claude-opus-4-7 --llm-effort high
 - `reports/defensive-review-llm.meta.json` — run metadata (model, backend, tokens used, stop_reason)
 
 If the LLM call fails, AttackMap still completes and writes all non-LLM artifacts. The failure is logged to stderr.
+
+## Hunting, verification, and remediation
+
+Three LLM modes build on the evidence pack:
+
+```bash
+# Propose ranked, evidence-cited exploit-chain hypotheses (leads, not detections)
+attackmap analyze . --hunt
+
+# Adjudicate each lead against the actual cited source — CONFIRMED / REFUTED / NEEDS-REVIEW
+attackmap analyze . --hunt --verify
+
+# Propose review-first fixes for the highest-priority findings
+attackmap analyze . --remediate
+```
+
+- `--hunt` → `reports/vulnerability-hypotheses.md`. Honesty guardrails: no CVE assignment, no exploit code, each lead states what to verify.
+- `--hunt --verify` re-reads the cited `file:line` excerpts and appends a verdict to each hypothesis.
+- `--remediate` → `reports/remediation.md`.
+
+## Running on pull requests
+
+AttackMap ships a reusable GitHub Action. It scans the repo, uploads SARIF for
+inline Code Scanning annotations, and posts a summary comment (`--pr-comment`)
+with the exploitability ranking and the new-vs-resolved diff gate:
+
+```yaml
+- uses: mlaify/AttackMap@v0.4.0
+  with:
+    path: .
+    baseline: reports/attackmap-report.json
+    fail-on-new-high: true
+```
 
 ## Dependency CVE scanning
 
