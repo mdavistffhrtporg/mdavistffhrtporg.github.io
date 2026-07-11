@@ -9,6 +9,8 @@ accent: "attackmap"
 
 {{< status "beta" >}}
 
+**Full documentation:** [docs.matthewd.xyz](https://docs.matthewd.xyz) — install, quickstart, CLI reference, AI review, the macOS app, and the analyzer SDK.
+
 ## What AttackMap is
 
 AttackMap is a **local-first, open-source defensive security analysis engine**. Point it at a repository and it reads source code, reconstructs the attack surface from first principles, and produces prioritized, evidence-anchored findings — without sending code off-device and without a cloud subscription.
