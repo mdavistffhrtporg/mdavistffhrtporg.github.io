@@ -23,19 +23,17 @@ You don't have to write code to be useful.
 
 - **File an issue when something is wrong on this site.** Broken link, wrong status, missing info, typo, accessibility problem — file against [mlaify/mlaify.github.io](https://github.com/mlaify/mlaify.github.io).
 - **Run a project against your own repo and tell me what happened.** Especially [AttackMap](/attackmap/getting-started/) — analyzer coverage and route-extraction accuracy improve fastest with real-world targets.
-- **Watch a repo.** Aegis and AttackMap both signal `v0.1` upcoming releases through GitHub releases.
+- **Watch the repo.** [AttackMap](https://github.com/mlaify/AttackMap) signals upcoming releases through GitHub releases.
 
 ## Hour-long contributions
 
-- **Improve a project page on this site.** Spotted a thin section in `content/aegis/` or `content/attackmap/`? PR welcome. Content is markdown; the [README](https://github.com/mlaify/mlaify.github.io) covers the structure.
+- **Improve a project page on this site.** Spotted a thin section in `content/attackmap/`? PR welcome. Content is markdown.
 - **Write a small analyzer for AttackMap.** If the language or framework you use isn't [in the catalog](/attackmap/analyzers/), the analyzer SDK is small. Start from the [getting-started guide](/attackmap/getting-started/).
-- **Run the Aegis CLI quickstart end-to-end and file ergonomic issues.** First-impressions feedback is gold for a `v0.1` CLI.
 
 ## Day-long contributions
 
 - **Send a substantive patch** to whichever repo you've been using. Bug fix, new feature, doc improvement — every repo has issues tagged for help.
-- **Author or refine a protocol RFC** in [aegis-spec](https://github.com/mlaify/aegis-spec). The protocol is still draft; this is the highest-leverage place to contribute if you have crypto or messaging-protocol experience.
-- **Stand up a public Aegis relay.** Federation is part of the design and I'd like it to be exercised in real life.
+- **Add ecosystem coverage to AttackMap.** A new analyzer plugin, better route extraction, or a new detector — real-world targets are where coverage improves fastest.
 
 ## Conventions
 

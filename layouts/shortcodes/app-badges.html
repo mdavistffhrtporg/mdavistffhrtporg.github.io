@@ -1,3 +1,0 @@
-{{- $platformsRaw := .Get "platforms" | default "ios,macos,android" -}}
-{{- $platforms := split $platformsRaw "," -}}
-{{ partial "app-badges.html" (dict "platforms" $platforms) }}
