@@ -24,7 +24,6 @@ This policy covers any digital assets owned, operated, or maintained by matthewd
 
 - **matthewd.xyz** — this site
 - **mlaify.io**
-- **Aegis** — post-quantum encrypted messaging stack ([github.com/mlaify](https://github.com/mlaify))
 - **AttackMap** — defensive security analysis engine ([github.com/mlaify](https://github.com/mlaify))
 
 ### What We Ask of You

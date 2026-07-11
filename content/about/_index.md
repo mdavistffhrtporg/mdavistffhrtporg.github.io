@@ -10,7 +10,7 @@ cascade:
 
 ![Matt D.](/images/pic_mdavis.png)
 
-I'm Matt. I write at [Fedora Magazine](https://fedoramagazine.org/) as a contributor and editor for the [Fedora Project](https://fedoraproject.org/), and I build small, security-first open source tools — primarily [Aegis](/aegis/) (post-quantum encrypted messaging) and [AttackMap](/attackmap/) (defensive security analysis). A few smaller projects sit alongside those: [OmekaRapper](/omekarapper/), [OpenSift](/opensift/), and [OpenContractRx](/opencontractrx/).
+I'm Matt. I write at [Fedora Magazine](https://fedoramagazine.org/) as a contributor and editor for the [Fedora Project](https://fedoraproject.org/), and I build small, security-first open source tools — most recently [AttackMap](/attackmap/), a local-first defensive security analyzer for real codebases.
 
 I've been working in open source since 2003 — long enough to remember Fedora Core 1. My background is psychology and interdisciplinary studies: BA from the [University of Texas at Arlington](https://www.uta.edu/) in 2010, MS from the [University of North Texas](https://www.unt.edu/) in 2019. While at UTA I did neuroscience research in electrophysiology and pain and contributed to several publications. Day job has been in IT and cybersecurity.
 
@@ -24,7 +24,7 @@ The way the projects on this site look — small, protocol-first, status-honest,
 
 **Status you can trust beats marketing.** Every project here carries an explicit status. "Alpha" means alpha. "Hardening pending" means I haven't yet hardened it. I'd rather lose a lead than oversell a `v0.1`.
 
-**Composability over monoliths.** I favor module boundaries that let other people swap pieces — analyzers in AttackMap, identity providers and relays in Aegis, AI providers in OmekaRapper and OpenSift. Costs more upfront and pays off everywhere downstream.
+**Composability over monoliths.** I favor module boundaries that let other people swap pieces — AttackMap's analyzers are independent packages you can add to, swap, or run a subset of, and its LLM providers are pluggable. Costs more upfront and pays off everywhere downstream.
 
 See [build principles](/principles/) for the longer version.
 
